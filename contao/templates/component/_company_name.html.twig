@@ -1,0 +1,12 @@
+{% block company_name_component %}
+    {% if attribute(group, 'name') | default %}
+        <ul class="company__legal-name">
+            <li><span itemprop="legalName">{{ attribute(group, 'name') }}</span></li>
+        </ul>
+    {% endif %}
+    {% if attribute(group, 'imprintName') | default %}
+        <ul class="company__legal-name">
+            <li class="company__name"><span itemprop="legalName">{{ attribute(group, 'imprintName') }}</span></li>
+        </ul>
+    {% endif %}
+{% endblock %}

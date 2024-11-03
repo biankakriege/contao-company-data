@@ -1,0 +1,21 @@
+{% extends "@Contao/content_element/_base.html.twig" %}
+{% use "@Contao/component/_figure.html.twig" %}
+{% use "@Contao/component/_company_name.html.twig" %}
+{% use "@Contao/component/_company_contact.html.twig" %}
+{% use "@Contao/component/_company_address.html.twig" %}
+{% use "@Contao/component/_company_imprint.html.twig" %}
+
+{% block content %}
+    {% if company %}
+        <div class="company">
+            {% if logo | default %}
+                {% with {figure: logo} %}{{ block('figure_component') }}{% endwith %}
+            {% endif %}
+            <div class="company__element">
+                {% for category,group in company %}
+                    {{ block('company_' ~ category ~ '_component') }}
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}

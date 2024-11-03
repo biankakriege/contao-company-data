@@ -1,0 +1,46 @@
+{% block company_imprint_component %}
+    <ul class="company__legal-information">
+        {% if attribute(group, 'imprintRepresentative') | default %}
+            <li class="company__representative">
+                <span>{{ attribute(attribute(translation, 'imprintRepresentative' ),0) }}:</span>
+                <span>{{ attribute(group, 'imprintRepresentative') }}</span>
+            </li>
+        {% endif %}
+        {% if attribute(group, 'imprintVatIdentificationNumber') | default %}
+            <li class="company__vat-id">
+                <span>{{ attribute(attribute(translation, 'imprintVatIdentificationNumber' ),0) }}:</span>
+                <span itemprop="vatID">{{ attribute(group, 'imprintVatIdentificationNumber') }}</span>
+            </li>
+        {% endif %}
+        {% if attribute(group, 'imprintFinancialDistrict') | default %}
+            <li class="company__financial-district">
+                <span>{{ attribute(attribute(translation, 'imprintFinancialDistrict' ),0) }}:</span>
+                <span>{{ attribute(group, 'imprintFinancialDistrict') }}</span>
+            </li>
+        {% endif %}
+        {% if attribute(group, 'imprintPublicRegistry') | default %}
+            <li class="company__public-registry">
+                <span>{{ attribute(attribute(translation, 'imprintPublicRegistry' ),0) }}:</span>
+                <span>{{ attribute(group, 'imprintPublicRegistry') }}</span>
+            </li>
+        {% endif %}
+        {% if attribute(group, 'imprintPublicRegistryNumber') | default %}
+            <li class="company__public-registry-number">
+                <span>{{ attribute(attribute(translation, 'imprintPublicRegistryNumber' ),0) }}:</span>
+                <span>{{ attribute(group, 'imprintPublicRegistryNumber') }}</span>
+            </li>
+        {% endif %}
+        {% if attribute(group, 'imprintTaxIdentificationNumber') | default %}
+            <li class="company__tax-id">
+                <span>{{ attribute(attribute(translation, 'imprintTaxIdentificationNumber' ),0) }}:</span>
+                <span itemprop="taxID">{{ attribute(group, 'imprintTaxIdentificationNumber') }}</span>
+            </li>
+        {% endif %}
+        {% if attribute(group, 'imprintEconomyIdentificationNumber') | default %}
+            <li class="company__economy-id">
+                <span>{{ attribute(attribute(translation, 'imprintEconomyIdentificationNumber' ),0) }}:</span>
+                <span>{{ attribute(group, 'imprintEconomyIdentificationNumber') }}</span>
+            </li>
+        {% endif %}
+    </ul>
+{% endblock %}

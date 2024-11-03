@@ -1,0 +1,32 @@
+{% if imageSrc | default %}
+    <img alt="{% if imageAlt | default %}{{ imageAlt }}{% endif %}" src="{{ imageSrc }}" border="0"
+         style="border:0; outline:none; text-decoration:none; display:block;">
+    <br>
+{% endif %}
+{% if imprintName | default %}
+    <strong>{{ imprintName }}</strong>
+{% else %}
+    <strong>{{ name }}</strong>
+{% endif %}
+{% if address | default %}
+    <br>{{ address }}<br>
+{% endif %}
+{% if phone | default %}
+    <br>{{ 'tl_kkt_company.phone.0'|trans({}, 'contao_tl_kkt_company') }}
+    <a href="tel:{{ phone }}">{{ phone }}</a>
+{% endif %}
+{% if email | default %}
+    <br>{{ 'tl_kkt_company.email.0'|trans({}, 'contao_tl_kkt_company') }}
+    <a href="mailto:{{ email }}">{{ email }}</a>
+{% endif %}
+{% if imprintRepresentative | default %}
+    <br>
+    <br>{{ 'tl_kkt_company.imprintRepresentative.0'|trans({}, 'contao_tl_kkt_company') }}: {{ imprintRepresentative }}
+    <br>
+{% endif %}
+{% if imprintPublicRegistry | default %}
+    {{ 'tl_kkt_company.imprintPublicRegistry.0'|trans({}, 'contao_tl_kkt_company') }}: {{ imprintPublicRegistry }}<br>
+{% endif %}
+{% if imprintPublicRegistryNumber | default %}
+    {{ 'tl_kkt_company.imprintPublicRegistryNumber.0'|trans({}, 'contao_tl_kkt_company') }}: {{ imprintPublicRegistryNumber }}
+{% endif %}

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.1">
+    <file datatype="php" original="contao/languages/en/tl_kkt_company.php" source-language="en">
+        <body>
+            <trans-unit id="tl_kkt_company.name.0">
+                <source>Firmenname</source>
+            </trans-unit>
+            <trans-unit id="tl_kkt_company.singleSRC.0">
+                <source>Logo</source>
+            </trans-unit>
+            <trans-unit id="tl_kkt_company.singleSRC.1">
+                <source>Bitte wählen Sie das Firmen-Logo aus den Dateien aus</source>
+            </trans-unit>
+            <trans-unit id="tl_kkt_company.city.0">
+                <source>Ort</source>
+            </trans-unit>
+            <trans-unit id="tl_kkt_company.postal.0">
+                <source>Postleitzahl</source>
+            </trans-unit>
+            <trans-unit id="tl_kkt_company.street.0">
+                <source>Adresse</source>
+            </trans-unit>
+            <trans-unit id="tl_kkt_company.country.0">
+                <source>Land</source>
+            </trans-unit>
+            <trans-unit id="tl_kkt_company.email.0">
+                <source>E-Mail</source>
+            </trans-unit>
+            <trans-unit id="tl_kkt_company.phone.0">
+                <source>Telefon</source>
+            </trans-unit>
+            <trans-unit id="tl_kkt_company.website.0">
+                <source>Webseite</source>
+            </trans-unit>
+            <trans-unit id="tl_kkt_company.imprintName.0">
+                <source>Unternehmensname mit Angabe der Rechtsform</source>
+            </trans-unit>
+            <trans-unit id="tl_kkt_company.imprintRepresentative.0">
+                <source>Geschäftsleitung</source>
+            </trans-unit>
+            <trans-unit id="tl_kkt_company.imprintPublicRegistry.0">
+                <source>Register</source>
+            </trans-unit>
+            <trans-unit id="tl_kkt_company.imprintPublicRegistry.1">
+                <source>Ort des Registers</source>
+            </trans-unit>
+            <trans-unit id="tl_kkt_company.imprintPublicRegistryNumber.0">
+                <source>Handelsregisternummer</source>
+            </trans-unit>
+            <trans-unit id="tl_kkt_company.imprintPublicRegistryNumber.1">
+                <source>Registernummer</source>
+            </trans-unit>
+            <trans-unit id="tl_kkt_company.imprintFinancialDistrict.0">
+                <source>Finanzamt</source>
+            </trans-unit>
+            <trans-unit id="tl_kkt_company.imprintVatIdentificationNumber.0">
+                <source>Umsatzsteuer-ID</source>
+            </trans-unit>
+            <trans-unit id="tl_kkt_company.imprintVatIdentificationNumber.1">
+                <source>Umsatzsteuer-Identifikationsnummer</source>
+            </trans-unit>
+            <trans-unit id="tl_kkt_company.imprintTaxIdentificationNumber.0">
+                <source>Steuernummer</source>
+            </trans-unit>
+            <trans-unit id="tl_kkt_company.imprintEconomyIdentificationNumber.0">
+                <source>Wirtschaftsnummer</source>
+            </trans-unit>
+            <trans-unit id="tl_kkt_company.imprintEconomyIdentificationNumber.1">
+                <source>Wirtschafts-Identifikationsnummer</source>
+            </trans-unit>
+            <trans-unit id="tl_kkt_company.address_legend">
+                <source>Adresse</source>
+            </trans-unit>
+            <trans-unit id="tl_kkt_company.contact_legend">
+                <source>Kontakt</source>
+            </trans-unit>
+            <trans-unit id="tl_kkt_company.imprint_legend">
+                <source>Impressum</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

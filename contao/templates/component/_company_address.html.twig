@@ -1,0 +1,24 @@
+{% use "@Contao/component/_company_country.html.twig" %}
+{% block company_address_component %}
+    {% if data.showAddress %}
+        <ul class="company__address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+            {% if attribute(group, 'street') | default %}
+                <li class="company__street">
+                    <span itemprop="streetAddress">{{ attribute(group, 'street') }}</span>
+                </li>
+            {% endif %}
+            <li class="company__location">
+                {% if attribute(group, 'postal') | default %}<span
+                        itemprop="postalCode">{{ attribute(group, 'postal') }}</span>{% endif %}
+                {% if attribute(group, 'city') | default %}<span
+                        itemprop="addressLocality">{{ attribute(group, 'city') }}</span>{% endif %}
+            </li>
+            {{ block('company_country_component') }}
+        </ul>
+    {% endif %}
+    {% if data.showCountry and data.showAddress is empty %}
+        <ul class="company__address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+            {{ block('company_country_component') }}
+        </ul>
+    {% endif %}
+{% endblock %}

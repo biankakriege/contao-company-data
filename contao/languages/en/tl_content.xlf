@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.1">
+    <file datatype="php" original="contao/languages/en/tl_content.php" source-language="en">
+        <body>
+            <trans-unit id="tl_content.companyId.0">
+                <source>Anzuzeigende Firma</source>
+            </trans-unit>
+            <trans-unit id="tl_content.companyId.1">
+                <source>Wählen Sie die Firma, für die Sie die Kontaktdaten anzeigen lassen wollen</source>
+            </trans-unit>
+            <trans-unit id="tl_content.personId.0">
+                <source>Anzuzeigende Person</source>
+            </trans-unit>
+            <trans-unit id="tl_content.name.0">
+                <source>Firmennamen anzeigen</source>
+            </trans-unit>
+            <trans-unit id="tl_content.showAddress.0">
+                <source>Adresse anzeigen</source>
+            </trans-unit>
+            <trans-unit id="tl_content.showCountry.0">
+                <source>Land anzeigen</source>
+            </trans-unit>
+            <trans-unit id="tl_content.email.0">
+                <source>E-Mail anzeigen</source>
+            </trans-unit>
+            <trans-unit id="tl_content.phone.0">
+                <source>Telefonnummer anzeigen</source>
+            </trans-unit>
+            <trans-unit id="tl_content.website.0">
+                <source>Webadresse anzeigen</source>
+            </trans-unit>
+            <trans-unit id="tl_content.imprintName.0">
+                <source>Seiteninhaber/Stellvertretende Person anzeigen</source>
+            </trans-unit>
+            <trans-unit id="tl_content.imprintRepresentative.0">
+                <source>Seiteninhaber/Stellvertretende Person anzeigen</source>
+            </trans-unit>
+            <trans-unit id="tl_content.imprintPublicRegistry.0">
+                <source>Register anzeigen</source>
+            </trans-unit>
+            <trans-unit id="tl_content.imprintFinancialDistrict.0">
+                <source>Finanzamt anzeigen</source>
+            </trans-unit>
+            <trans-unit id="tl_content.imprintPublicRegistryNumber.0">
+                <source>Handelsregisternummer anzeigen</source>
+            </trans-unit>
+            <trans-unit id="tl_content.imprintVatIdentificationNumber.0">
+                <source>Umsatzsteuernummer anzeigen</source>
+            </trans-unit>
+            <trans-unit id="tl_content.imprintTaxIdentificationNumber.0">
+                <source>Steuernummer anzeigen</source>
+            </trans-unit>
+            <trans-unit id="tl_content.imprintEconomyIdentificationNumber.0">
+                <source>Wirtschaftsnummer anzeigen</source>
+            </trans-unit>
+            <trans-unit id="tl_content.showImage.0">
+                <source>Logo anzeigen</source>
+            </trans-unit>
+            <trans-unit id="tl_content.showPersonImage.0">
+                <source>Personenbild anzeigen</source>
+            </trans-unit>
+            <trans-unit id="tl_content.showPosition.0">
+                <source>Position anzeigen</source>
+            </trans-unit>
+            <trans-unit id="tl_content.company_legend">
+                <source>Auswahl Firma</source>
+            </trans-unit>
+            <trans-unit id="tl_content.company_information_legend">
+                <source>Kontaktdaten</source>
+            </trans-unit>
+            <trans-unit id="tl_content.company_imprint_legend">
+                <source>Impressum</source>
+            </trans-unit>
+            <trans-unit id="tl_content.setting_legend">
+                <source>Einstellungen</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

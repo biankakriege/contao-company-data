@@ -1,0 +1,21 @@
+{% use "@Contao/component/_figure.html.twig" %}
+{% use "@Contao/component/_company_contact.html.twig" %}
+
+<div class="person" itemscope itemtype="http://schema.org/Person">
+    {% if image %}
+        {% with {figure: image} %}{{ block('figure_component') }}{% endwith %}
+    {% endif %}
+    <div class="person__content">
+        <span class="person__name">{{ name }}</span>
+        {% if position %}<span>{{ position }}</span>{% endif %}
+    </div>
+    <div class="person__content">
+        {#{% with {group: data} %}{{ block('company_contact_component') }}{% endwith %}#}
+        {% if phone %}
+            <span>{{ attribute(attribute(translation, 'phone' ),0) }}: {{ phone }}</span>
+        {% endif %}
+        {% if email %}
+            <span>{{ attribute(attribute(translation, 'email' ),0) }}: {{ email }}</span>
+        {% endif %}
+    </div>
+</div>

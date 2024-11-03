@@ -1,0 +1,9 @@
+{% extends "@Contao/content_element/_base.html.twig" %}
+
+{% block content %}
+    <div class="content-person-list">
+        {% for item in list %}
+            {{ item|raw }}
+        {% endfor %}
+    </div>
+{% endblock %}

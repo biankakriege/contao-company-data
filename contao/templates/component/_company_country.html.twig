@@ -1,0 +1,7 @@
+{% block company_country_component %}
+    {% if data.showCountry %}
+        <li class="company__street">
+            <span itemprop="">{{ attribute(group, 'country') }}</span>
+        </li>
+    {% endif %}
+{% endblock %}

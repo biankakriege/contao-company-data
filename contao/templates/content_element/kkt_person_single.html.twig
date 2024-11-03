@@ -1,0 +1,9 @@
+{% extends "@Contao/content_element/_base.html.twig" %}
+
+{% block content %}
+    {% if list | default %}
+        <div class="content-person-single">
+            {{ list | raw }}
+        </div>
+    {% endif %}
+{% endblock %}

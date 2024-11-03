@@ -1,0 +1,25 @@
+{% block company_contact_component %}
+    <ul class="company__contact">
+        {% if attribute(group, 'email') | default %}
+            <li class="company__email">
+                <span>{{ attribute(attribute(translation, 'email' ),0) }}:</span>
+                <a itemprop="email"
+                   href="mailto:{{ attribute(group, 'email') }}">{{ attribute(group, 'email') }}
+                </a>
+            </li>
+        {% endif %}
+        {% if attribute(group, 'phone') | default %}
+            <li class="company__phone">
+                <span>{{ attribute(attribute(translation, 'phone' ),0) }}:</span>
+                <a href="tel:{{  attribute(group, 'phone') }}">{{ attribute(group, 'phone') }}</a>
+                <meta itemprop="telephone" content="{{ attribute(group, 'phone') }}"/>
+            </li>
+        {% endif %}
+        {% if attribute(group, 'website') | default %}
+            <li class="company__website">
+                <span>{{ attribute(attribute(translation, 'website' ),0) }}:</span>
+                <a itemprop="website" href="{{ attribute(group, 'website') }}">{{ attribute(group, 'website') }}</a>
+            </li>
+        {% endif %}
+    </ul>
+{% endblock %}

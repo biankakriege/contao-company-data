@@ -1,0 +1,15 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# IDEs
+.buildpath
+.project
+.settings/
+.build/
+.idea/*
+!.idea/stylesheetLinters
+!.idea/symfony2.xml
+!.idea/jsLinters
+.idea/jsLinters/*
+!.idea/jsLinters/jshint.xml

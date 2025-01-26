@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 /**
  * Bianka Kriege <bianka.kriege@web.de>
- * (c)2024, Bianka Kriege
+ * (c)2024-2025, Bianka Kriege
  * @package: company-data
  */
 
-use BiankaKriege\ContaoCompanyData\Controller\ContentElement\KktCompanyContactController;
-use BiankaKriege\ContaoCompanyData\Controller\ContentElement\KktPersonSingleController;
-use BiankaKriege\ContaoCompanyData\Controller\ContentElement\KktPersonListController;
+use BiankaKriege\ContaoCompanyData\Controller\ContentElement\BkCompanyContactController;
+use BiankaKriege\ContaoCompanyData\Controller\ContentElement\BkPersonSingleController;
+use BiankaKriege\ContaoCompanyData\Controller\ContentElement\BkPersonListController;
 use BiankaKriege\ContaoCompanyData\Model\CompanyModel;
 use BiankaKriege\ContaoCompanyData\Model\PersonModel;
 
@@ -126,7 +126,7 @@ $GLOBALS['TL_DCA'][$table]['fields']['imprintEconomyIdentificationNumber'] = [
     'sql' => "char(1) NOT NULL default ''",
 ];
 
-$GLOBALS['TL_DCA'][$table]['palettes'][KktCompanyContactController::TYPE] =
+$GLOBALS['TL_DCA'][$table]['palettes'][BkCompanyContactController::TYPE] =
     '{type_legend},type,headline,subline;
     {company_legend},companyId;
     {company_information_legend},name,showAddress,showCountry,email,phone,website;
@@ -137,7 +137,7 @@ $GLOBALS['TL_DCA'][$table]['palettes'][KktCompanyContactController::TYPE] =
     {expert_legend:hide},guests,cssID,space;
     {invisible_legend:hide},invisible,start,stop';
 
-$GLOBALS['TL_DCA'][$table]['palettes'][KktPersonListController::TYPE] =
+$GLOBALS['TL_DCA'][$table]['palettes'][BkPersonListController::TYPE] =
     '{type_legend},type,headline;
     {company_legend},companyId,showImage,showPosition,showAddress,email,phone,showMobile,showFax,showWebsite;
     {source_legend},size;
@@ -147,7 +147,7 @@ $GLOBALS['TL_DCA'][$table]['palettes'][KktPersonListController::TYPE] =
     {invisible_legend:hide},invisible,start,stop';
 
 
-$GLOBALS['TL_DCA'][$table]['palettes'][KktPersonSingleController::TYPE] =
+$GLOBALS['TL_DCA'][$table]['palettes'][BkPersonSingleController::TYPE] =
     '{type_legend},type,headline;
     {company_legend},personId,showImage,showPosition,showAddress,email,phone,showMobile,showFax,showWebsite;
     {source_legend},size;

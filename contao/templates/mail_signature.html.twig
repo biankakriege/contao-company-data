@@ -12,21 +12,21 @@
     <br>{{ address }}<br>
 {% endif %}
 {% if phone | default %}
-    <br>{{ 'tl_kkt_company.phone.0'|trans({}, 'contao_tl_kkt_company') }}
+    <br>{{ 'tl_bk_company.phone.0'|trans({}, 'contao_tl_bk_company') }}
     <a href="tel:{{ phone }}">{{ phone }}</a>
 {% endif %}
 {% if email | default %}
-    <br>{{ 'tl_kkt_company.email.0'|trans({}, 'contao_tl_kkt_company') }}
+    <br>{{ 'tl_bk_company.email.0'|trans({}, 'contao_tl_bk_company') }}
     <a href="mailto:{{ email }}">{{ email }}</a>
 {% endif %}
 {% if imprintRepresentative | default %}
     <br>
-    <br>{{ 'tl_kkt_company.imprintRepresentative.0'|trans({}, 'contao_tl_kkt_company') }}: {{ imprintRepresentative }}
+    <br>{{ 'tl_bk_company.imprintRepresentative.0'|trans({}, 'contao_tl_bk_company') }}: {{ imprintRepresentative }}
     <br>
 {% endif %}
 {% if imprintPublicRegistry | default %}
-    {{ 'tl_kkt_company.imprintPublicRegistry.0'|trans({}, 'contao_tl_kkt_company') }}: {{ imprintPublicRegistry }}<br>
+    {{ 'tl_bk_company.imprintPublicRegistry.0'|trans({}, 'contao_tl_bk_company') }}: {{ imprintPublicRegistry }}<br>
 {% endif %}
 {% if imprintPublicRegistryNumber | default %}
-    {{ 'tl_kkt_company.imprintPublicRegistryNumber.0'|trans({}, 'contao_tl_kkt_company') }}: {{ imprintPublicRegistryNumber }}
+    {{ 'tl_bk_company.imprintPublicRegistryNumber.0'|trans({}, 'contao_tl_bk_company') }}: {{ imprintPublicRegistryNumber }}
 {% endif %}

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 /**
  * Bianka Kriege <bianka.kriege@web.de>
- * (c)2024, Bianka Kriege
+ * (c)2024-2025, Bianka Kriege
  * @package: company-data
  */
 
@@ -20,10 +20,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment as TwigEnvironment;
 
-#[AsContentElement(self::TYPE, category: 'kkt_company')]
-class KktPersonSingleController extends AbstractContentElementController
+#[AsContentElement(self::TYPE, category: 'bk_company')]
+class BkPersonSingleController extends AbstractContentElementController
 {
-    public const TYPE = 'kkt_person_single';
+    public const TYPE = 'bk_person_single';
 
     public function __construct(
         private readonly TwigEnvironment $twig,

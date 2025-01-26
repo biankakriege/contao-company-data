@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 /**
  * Bianka Kriege <bianka.kriege@web.de>
- * (c)2024, Bianka Kriege
+ * (c)2024-2025, Bianka Kriege
  * @package: company-data
  */
 
@@ -18,10 +18,10 @@ use BiankaKriege\ContaoCompanyData\Model\CompanyModel;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-#[AsFrontendModule(self::TYPE, category: 'kkt_company')]
-class KktCompanyContactModuleController extends AbstractFrontendModuleController
+#[AsFrontendModule(self::TYPE, category: 'bk_company')]
+class BkCompanyContactModuleController extends AbstractFrontendModuleController
 {
-    public const TYPE = 'kkt_company_contact';
+    public const TYPE = 'bk_company_contact';
 
     public function __construct(
         private readonly DataHelper $dataHelper,

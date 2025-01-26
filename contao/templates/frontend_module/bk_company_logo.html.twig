@@ -1,0 +1,15 @@
+{% extends "@Contao/content_element/_base.html.twig" %}
+{% use "@Contao/component/_figure.html.twig" %}
+
+{% block content %}
+    {% if logo %}
+        <div class="logo">
+            {% if not link is empty %}
+                <span class="logo__link">{% with {figure: logo} %}{{ block('figure_component') }}{% endwith %}</span>
+            {% else %}
+                <a class="logo__link" href="{% if link|default %}{{ link }}{% endif %}"
+                   title="{% if linkTitle|default %}{{ linkTitle }}{% endif %}">{% with {figure: logo} %}{{ block('figure_component') }}{% endwith %}</a>
+            {% endif %}
+        </div>
+    {% endif %}
+{% endblock %}

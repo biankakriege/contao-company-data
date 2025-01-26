@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 /**
  * Bianka Kriege <bianka.kriege@web.de>
- * (c)2024, Bianka Kriege
+ * (c)2024-2025, Bianka Kriege
  * @package: company-data
  */
 
@@ -14,7 +14,7 @@ use Contao\Model;
 
 class PersonModel extends Model
 {
-    public const TABLE = 'tl_kkt_person';
+    public const TABLE = 'tl_bk_person';
 
-    protected static $strTable = 'tl_kkt_person';
+    protected static $strTable = 'tl_bk_person';
 }

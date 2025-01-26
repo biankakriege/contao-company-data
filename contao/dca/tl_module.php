@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 /**
  * Bianka Kriege <bianka.kriege@web.de>
- * (c)2024, Bianka Kriege
+ * (c)2024-2025, Bianka Kriege
  * @package: company-data
  */
 
-use BiankaKriege\ContaoCompanyData\Controller\ContentElement\KktCompanyContactController;
-use BiankaKriege\ContaoCompanyData\Controller\FrontendModule\KktCompanyLogoController;
+use BiankaKriege\ContaoCompanyData\Controller\ContentElement\BkCompanyContactController;
+use BiankaKriege\ContaoCompanyData\Controller\FrontendModule\BkCompanyLogoController;
 use BiankaKriege\ContaoCompanyData\Model\CompanyModel;
 
 $GLOBALS['TL_DCA']['tl_module']['fields']['link'] = [
@@ -78,12 +78,12 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['website'] = [
     'sql' => "char(1) NOT NULL default ''",
 ];
 
-$GLOBALS['TL_DCA']['tl_module']['palettes'][KktCompanyLogoController::TYPE] = <<<'EOD'
+$GLOBALS['TL_DCA']['tl_module']['palettes'][BkCompanyLogoController::TYPE] = <<<'EOD'
         {type_legend},name,type;
         {company_legend},companyId,rootPage,imgSize;
     EOD;
 
-$GLOBALS['TL_DCA']['tl_module']['palettes'][KktCompanyContactController::TYPE] = <<<'EOD'
+$GLOBALS['TL_DCA']['tl_module']['palettes'][BkCompanyContactController::TYPE] = <<<'EOD'
         {title_legend},name,type,headline;
         {company_legend},companyId,companyName,showAddress,showCountry,email,phone,website,showImage,imgSize;
         {template_legend:hide},customTpl;

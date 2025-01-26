@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 /**
  * Bianka Kriege <bianka.kriege@web.de>
- * (c)2024, Bianka Kriege
+ * (c)2024-2025, Bianka Kriege
  * @package: company-data
  */
 
@@ -22,10 +22,10 @@ use BiankaKriege\ContaoCompanyData\Model\CompanyModel;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-#[AsContentElement(self::TYPE, category: 'kkt_company')]
-class KktCompanyContactController extends AbstractContentElementController
+#[AsContentElement(self::TYPE, category: 'bk_company')]
+class BkCompanyContactController extends AbstractContentElementController
 {
-    public const TYPE = 'kkt_company_contact';
+    public const TYPE = 'bk_company_contact';
 
     public function __construct(
         private readonly ScopeMatcher $scopeMatcher,

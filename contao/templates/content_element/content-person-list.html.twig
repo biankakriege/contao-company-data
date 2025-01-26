@@ -10,7 +10,6 @@
         {% if position %}<span>{{ position }}</span>{% endif %}
     </div>
     <div class="person__content">
-        {#{% with {group: data} %}{{ block('company_contact_component') }}{% endwith %}#}
         {% if phone %}
             <span>{{ attribute(attribute(translation, 'phone' ),0) }}: {{ phone }}</span>
         {% endif %}

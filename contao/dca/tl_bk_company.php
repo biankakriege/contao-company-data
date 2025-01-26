@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 /**
  * Bianka Kriege <bianka.kriege@web.de>
- * (c)2024, Bianka Kriege
+ * (c)2024-2025, Bianka Kriege
  * @package: company-data
  */
 
@@ -12,12 +12,12 @@ use Contao\DataContainer;
 use Contao\DC_Table;
 use Contao\System;
 
-$table = 'tl_kkt_company';
+$table = 'tl_bk_company';
 
 $GLOBALS['TL_DCA'][$table] = [
     'config' => [
         'dataContainer' => DC_Table::class,
-        'ctable' => ['tl_kkt_person'],
+        'ctable' => ['tl_bk_person'],
         'enableVersioning' => true,
         'sql' => [
             'keys' => [

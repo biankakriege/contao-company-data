@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 /**
  * Bianka Kriege <bianka.kriege@web.de>
- * (c)2024, Bianka Kriege
+ * (c)2024-2025, Bianka Kriege
  * @package: company-data
  */
 
@@ -17,5 +17,5 @@ $GLOBALS['BE_MOD']['content']['person'] = ['tables' => [PersonModel::TABLE]];
 /*
  * Register the Models
  */
-$GLOBALS['TL_MODELS']['tl_kkt_company'] = CompanyModel::class;
-$GLOBALS['TL_MODELS']['tl_kkt_person'] = PersonModel::class;
+$GLOBALS['TL_MODELS']['tl_bk_company'] = CompanyModel::class;
+$GLOBALS['TL_MODELS']['tl_bk_person'] = PersonModel::class;

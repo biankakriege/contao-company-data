@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 /**
  * Bianka Kriege <bianka.kriege@web.de>
- * (c)2024, Bianka Kriege
+ * (c)2024-2025, Bianka Kriege
  * @package: company-data
  */
 
@@ -69,7 +69,7 @@ $GLOBALS['TL_DCA'][PersonModel::TABLE] =
             'filter' => true,
             'sorting' => true,
             'inputType' => 'select',
-            'foreignKey' => 'tl_kkt_company.name',
+            'foreignKey' => 'tl_bk_company.name',
             'eval' => ['mandatory' => true],
             'sql' => 'int(10) unsigned NOT NULL default 0',
         ],

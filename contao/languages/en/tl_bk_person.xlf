@@ -1,68 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xliff version="1.1">
-    <file datatype="php" original="contao/languages/en/tl_kkt_person.php" source-language="en">
+    <file datatype="php" original="contao/languages/en/tl_bk_person.php" source-language="en">
         <body>
-            <trans-unit id="tl_kkt_person.pid.0">
+            <trans-unit id="tl_bk_person.pid.0">
                 <source>Firma</source>
             </trans-unit>
-            <trans-unit id="tl_kkt_person.title.0">
+            <trans-unit id="tl_bk_person.title.0">
                 <source>Titel</source>
             </trans-unit>
-            <trans-unit id="tl_kkt_person.name.0">
+            <trans-unit id="tl_bk_person.name.0">
                 <source>Name</source>
             </trans-unit>
-            <trans-unit id="tl_kkt_person.position.0">
+            <trans-unit id="tl_bk_person.position.0">
                 <source>Position</source>
             </trans-unit>
-            <trans-unit id="tl_kkt_person.singleSRC.0">
+            <trans-unit id="tl_bk_person.singleSRC.0">
                 <source>Bild</source>
             </trans-unit>
-            <trans-unit id="tl_kkt_person.phone.0">
+            <trans-unit id="tl_bk_person.phone.0">
                 <source>Telefon</source>
             </trans-unit>
-            <trans-unit id="tl_kkt_person.mobile.0">
+            <trans-unit id="tl_bk_person.mobile.0">
                 <source>Mobilnummer</source>
             </trans-unit>
-            <trans-unit id="tl_kkt_person.fax.0">
+            <trans-unit id="tl_bk_person.fax.0">
                 <source>Faxnummer</source>
             </trans-unit>
-            <trans-unit id="tl_kkt_person.email.0">
+            <trans-unit id="tl_bk_person.email.0">
                 <source>E-Mail</source>
             </trans-unit>
-            <trans-unit id="tl_kkt_person.website.0">
+            <trans-unit id="tl_bk_person.website.0">
                 <source>Webadresse</source>
             </trans-unit>
-            <trans-unit id="tl_kkt_person.mobile.0">
+            <trans-unit id="tl_bk_person.mobile.0">
                 <source>Mobilnummer</source>
             </trans-unit>
-            <trans-unit id="tl_kkt_person.fax.0">
+            <trans-unit id="tl_bk_person.fax.0">
                 <source>Faxnummer</source>
             </trans-unit>
-            <trans-unit id="tl_kkt_person.street.0">
+            <trans-unit id="tl_bk_person.street.0">
                 <source>Straße und Hausnummer</source>
             </trans-unit>
-            <trans-unit id="tl_kkt_person.postal.0">
+            <trans-unit id="tl_bk_person.postal.0">
                 <source>Postleitzahl</source>
             </trans-unit>
-            <trans-unit id="tl_kkt_person.city.0">
+            <trans-unit id="tl_bk_person.city.0">
                 <source>Ort</source>
             </trans-unit>
-            <trans-unit id="tl_kkt_person.published.0">
+            <trans-unit id="tl_bk_person.published.0">
                 <source>Veröffentlichen</source>
             </trans-unit>
-            <trans-unit id="tl_kkt_person.published.1">
+            <trans-unit id="tl_bk_person.published.1">
                 <source>Auf der Webseite in Inhaltselementen anzeigen</source>
             </trans-unit>
-            <trans-unit id="tl_kkt_person.personal_legend">
+            <trans-unit id="tl_bk_person.personal_legend">
                 <source>Allgemein</source>
             </trans-unit>
-            <trans-unit id="tl_kkt_person.contact_legend">
+            <trans-unit id="tl_bk_person.contact_legend">
                 <source>Kontakt</source>
             </trans-unit>
-            <trans-unit id="tl_kkt_person.address_legend">
+            <trans-unit id="tl_bk_person.address_legend">
                 <source>Adresse</source>
             </trans-unit>
-            <trans-unit id="tl_kkt_person.published_legend">
+            <trans-unit id="tl_bk_person.published_legend">
                 <source>Veröffentlichung</source>
             </trans-unit>
         </body>

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 /**
  * Bianka Kriege <bianka.kriege@web.de>
- * (c)2024, Bianka Kriege
+ * (c)2024-2025, Bianka Kriege
  * @package: company-data
  */
 
@@ -14,19 +14,17 @@ use Contao\ContentModel;
 use Contao\CoreBundle\Controller\ContentElement\AbstractContentElementController;
 use Contao\CoreBundle\DependencyInjection\Attribute\AsContentElement;
 use Contao\CoreBundle\Twig\FragmentTemplate;
-use Contao\System;
 use BiankaKriege\ContaoCompanyData\Helper\DataHelper;
 use BiankaKriege\ContaoCompanyData\Helper\ImageHelper;
-use BiankaKriege\ContaoCompanyData\Helper\Test;
 use BiankaKriege\ContaoCompanyData\Model\PersonModel;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment as TwigEnvironment;
 
-#[AsContentElement(self::TYPE, category: 'kkt_company')]
-class KktPersonListController extends AbstractContentElementController
+#[AsContentElement(self::TYPE, category: 'bk_company')]
+class BkPersonListController extends AbstractContentElementController
 {
-    public const TYPE = 'kkt_person_list';
+    public const TYPE = 'bk_person_list';
 
     public function __construct(
         private readonly ImageHelper     $imageHelper,

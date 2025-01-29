@@ -12,7 +12,6 @@ use BiankaKriege\ContaoCompanyData\Model\CompanyModel;
 use BiankaKriege\ContaoCompanyData\Model\PersonModel;
 
 $GLOBALS['BE_MOD']['content']['company'] = ['tables' => [CompanyModel::TABLE, PersonModel::TABLE]];
-$GLOBALS['BE_MOD']['content']['person'] = ['tables' => [PersonModel::TABLE]];
 
 /*
  * Register the Models

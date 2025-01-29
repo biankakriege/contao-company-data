@@ -19,7 +19,7 @@ $table = 'tl_content';
 /*
  * Fields
  */
-$GLOBALS['TL_DCA'][$table]['fields']['companyId'] = [
+$GLOBALS['TL_DCA'][$table]['fields']['bkCompanyId'] = [
     'inputType' => 'select',
     'foreignKey' => CompanyModel::getTable().'.name',
     'eval' => [
@@ -35,7 +35,7 @@ $GLOBALS['TL_DCA'][$table]['fields']['companyId'] = [
     ],
 ];
 
-$GLOBALS['TL_DCA'][$table]['fields']['personId'] = [
+$GLOBALS['TL_DCA'][$table]['fields']['bkPersonId'] = [
     'inputType' => 'select',
     'foreignKey' => PersonModel::getTable().'.name',
     'eval' => [
@@ -51,87 +51,16 @@ $GLOBALS['TL_DCA'][$table]['fields']['personId'] = [
     ],
 ];
 
-$GLOBALS['TL_DCA'][$table]['fields']['name'] = [
+$GLOBALS['TL_DCA'][$table]['fields']['bkSelectable'] = [
+    'exclude' => true,
     'inputType' => 'checkbox',
-    'sql' => "char(1) NOT NULL default ''",
-];
-
-$GLOBALS['TL_DCA'][$table]['fields']['showImage'] = [
-    'inputType' => 'checkbox',
-    'sql' => "char(1) NOT NULL default ''",
-];
-
-$GLOBALS['TL_DCA'][$table]['fields']['showAddress'] = [
-    'inputType' => 'checkbox',
-    'sql' => "char(1) NOT NULL default ''",
-];
-
-$GLOBALS['TL_DCA'][$table]['fields']['showCountry'] = [
-    'inputType' => 'checkbox',
-    'sql' => "char(1) NOT NULL default ''",
-];
-
-$GLOBALS['TL_DCA'][$table]['fields']['email'] = [
-    'inputType' => 'checkbox',
-    'sql' => "char(1) NOT NULL default ''",
-];
-
-$GLOBALS['TL_DCA'][$table]['fields']['phone'] = [
-    'inputType' => 'checkbox',
-    'sql' => "char(1) NOT NULL default ''",
-];
-
-$GLOBALS['TL_DCA'][$table]['fields']['website'] = [
-    'inputType' => 'checkbox',
-    'sql' => "char(1) NOT NULL default ''",
-];
-
-$GLOBALS['TL_DCA'][$table]['fields']['imprintName'] = [
-    'inputType' => 'checkbox',
-    'sql' => "char(1) NOT NULL default ''",
-];
-
-$GLOBALS['TL_DCA'][$table]['fields']['imprintRepresentative'] = [
-    'inputType' => 'checkbox',
-    'sql' => "char(1) NOT NULL default ''",
-];
-
-$GLOBALS['TL_DCA'][$table]['fields']['imprintPublicRegistry'] = [
-    'inputType' => 'checkbox',
-    'sql' => "char(1) NOT NULL default ''",
-];
-
-$GLOBALS['TL_DCA'][$table]['fields']['imprintFinancialDistrict'] = [
-    'inputType' => 'checkbox',
-    'sql' => "char(1) NOT NULL default ''",
-];
-
-$GLOBALS['TL_DCA'][$table]['fields']['imprintPublicRegistryNumber'] = [
-    'inputType' => 'checkbox',
-    'sql' => "char(1) NOT NULL default ''",
-];
-
-$GLOBALS['TL_DCA'][$table]['fields']['imprintVatIdentificationNumber'] = [
-    'inputType' => 'checkbox',
-    'sql' => "char(1) NOT NULL default ''",
-];
-
-$GLOBALS['TL_DCA'][$table]['fields']['imprintTaxIdentificationNumber'] = [
-    'inputType' => 'checkbox',
-    'sql' => "char(1) NOT NULL default ''",
-];
-
-$GLOBALS['TL_DCA'][$table]['fields']['imprintEconomyIdentificationNumber'] = [
-    'inputType' => 'checkbox',
-    'sql' => "char(1) NOT NULL default ''",
+    'eval' => ['multiple' => true, 'mandatory' => true],
+    'sql' => "blob NULL"
 ];
 
 $GLOBALS['TL_DCA'][$table]['palettes'][BkCompanyContactController::TYPE] =
     '{type_legend},type,headline,subline;
-    {company_legend},companyId;
-    {company_information_legend},name,showAddress,showCountry,email,phone,website;
-    {company_imprint_legend},imprintName,imprintRepresentative,imprintFinancialDistrict,imprintPublicRegistry,imprintPublicRegistryNumber,imprintVatIdentificationNumber,imprintTaxIdentificationNumber,imprintEconomyIdentificationNumber;
-    {source_legend},showImage,size;
+    {company_legend},bkCompanyId,bkSelectable,size;
     {template_legend:hide},customTpl;
     {protected_legend:hide},protected;
     {expert_legend:hide},guests,cssID,space;
@@ -139,7 +68,7 @@ $GLOBALS['TL_DCA'][$table]['palettes'][BkCompanyContactController::TYPE] =
 
 $GLOBALS['TL_DCA'][$table]['palettes'][BkPersonListController::TYPE] =
     '{type_legend},type,headline;
-    {company_legend},companyId,showImage,showPosition,showAddress,email,phone,showMobile,showFax,showWebsite;
+    {company_legend},bkCompanyId,bkSelectable;
     {source_legend},size;
     {template_legend:hide},customTpl;
     {protected_legend:hide},protected;
@@ -149,7 +78,7 @@ $GLOBALS['TL_DCA'][$table]['palettes'][BkPersonListController::TYPE] =
 
 $GLOBALS['TL_DCA'][$table]['palettes'][BkPersonSingleController::TYPE] =
     '{type_legend},type,headline;
-    {company_legend},personId,showImage,showPosition,showAddress,email,phone,showMobile,showFax,showWebsite;
+    {company_legend},bkPersonId,bkSelectable;
     {source_legend},size;
     {template_legend:hide},customTpl;
     {protected_legend:hide},protected;

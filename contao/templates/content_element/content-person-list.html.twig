@@ -2,19 +2,57 @@
 {% use "@Contao/component/_company_contact.html.twig" %}
 
 <div class="person" itemscope itemtype="http://schema.org/Person">
-    {% if image %}
-        {% with {figure: image} %}{{ block('figure_component') }}{% endwith %}
-    {% endif %}
-    <div class="person__content">
-        <span class="person__name">{{ name }}</span>
-        {% if position %}<span>{{ position }}</span>{% endif %}
-    </div>
-    <div class="person__content">
-        {% if phone %}
-            <span>{{ attribute(attribute(translation, 'phone' ),0) }}: {{ phone }}</span>
+    {% block bk_image %}
+        {% if image|default %}
+            {% with {figure: image} %}{{ block('figure_component') }}{% endwith %}
         {% endif %}
-        {% if email %}
+    {% endblock %}
+
+    {% block bk_name %}
+        <div class="person__content">
+            {% if name|default %}<span class="person__name">{{ name }}</span>{% endif %}
+            {% if position|default %}<span>{{ position }}</span>{% endif %}
+        </div>
+    {% endblock %}
+
+    {% block bk_email %}
+        {% if email|default %}
+            <div class="person__content">
             <span>{{ attribute(attribute(translation, 'email' ),0) }}: {{ email }}</span>
         {% endif %}
-    </div>
+        </div>
+    {% endblock %}
+
+    {% block bk_contact %}
+        <div class="person__content">
+            {% if phone|default %}
+                <span>{{ attribute(attribute(translation, 'phone' ),0) }}: {{ phone }}</span>
+            {% endif %}
+            {% if mobile|default %}
+                <span>{{ attribute(attribute(translation, 'mobile' ),0) }}: {{ mobile }}</span>
+            {% endif %}
+            {% if fax|default %}
+                <span>{{ attribute(attribute(translation, 'fax' ),0) }}: {{ fax }}</span>
+            {% endif %}
+        </div>
+    {% endblock %}
+
+    {% block bk_address %}
+        <div class="person__content">
+            {% if street|default %}
+                <span>{{ street }}</span>
+            {% endif %}
+            <div class="person__address">
+                {% if postal|default %}
+                    <span>{{ postal }}</span>
+                {% endif %}
+                {% if city|default %}
+                    <span class="city">{{ city }}</span>
+                {% endif %}
+            </div>
+            {% if country|default %}
+                <span class="country">{{ country }}</span>
+            {% endif %}
+        </div>
+    {% endblock %}
 </div>

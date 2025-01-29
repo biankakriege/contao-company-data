@@ -33,7 +33,7 @@ class BkCompanyLogoController extends AbstractFrontendModuleController
 
     protected function getResponse(FragmentTemplate $template, ModuleModel $model, Request $request): Response
     {
-        $company = CompanyModel::findById($model->companyId);
+        $company = CompanyModel::findById($model->bkCompanyId);
 
         if (null !== $company) {
             $template->logo = $this->imageHelper->getImage($company->singleSRC, $model->imgSize);

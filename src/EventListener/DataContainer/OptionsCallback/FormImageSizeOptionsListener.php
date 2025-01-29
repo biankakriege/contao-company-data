@@ -8,14 +8,14 @@ declare(strict_types=1);
  * @package: company-data
  */
 
-namespace BiankaKriege\ContaoCompanyData\EventListener;
+namespace BiankaKriege\ContaoCompanyData\EventListener\DataContainer\OptionsCallback;
 
 use Contao\BackendUser;
 use Contao\CoreBundle\DependencyInjection\Attribute\AsCallback;
 use Contao\CoreBundle\Image\ImageSizes;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 
-#[AsCallback('tl_form', 'fields.size.options')]
+#[AsCallback('tl_form', 'fields.bkImgSize.options')]
 class FormImageSizeOptionsListener
 {
     public function __construct(

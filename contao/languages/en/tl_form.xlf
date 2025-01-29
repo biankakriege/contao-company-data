@@ -2,25 +2,25 @@
 <xliff version="1.1">
     <file datatype="php" original="contao/languages/en/tl_form.php" source-language="en">
         <body>
-            <trans-unit id="tl_form.companyId.0">
+            <trans-unit id="tl_form.bkCompanyId.0">
                 <source>Firma</source>
             </trans-unit>
-            <trans-unit id="tl_form.companyId.1">
+            <trans-unit id="tl_form.bkCompanyId.1">
                 <source>Wählen Sie die gewünschte Firma aus.</source>
             </trans-unit>
-            <trans-unit id="tl_form.addSignatureAuto.0">
+            <trans-unit id="tl_form.bkAddSignatureAuto.0">
                 <source>Signatur anhängen</source>
             </trans-unit>
-            <trans-unit id="tl_form.addSignatureAuto.1">
+            <trans-unit id="tl_form.bkAddSignatureAuto.1">
                 <source>Template mail_signature.html.twig kann überschrieben werden.</source>
             </trans-unit>
-            <trans-unit id="tl_form.generatePlaceholder.0">
+            <trans-unit id="tl_form.bkGeneratePlaceholder.0">
                 <source>Platzhalter generieren</source>
             </trans-unit>
-            <trans-unit id="tl_form.generatePlaceholder.1">
+            <trans-unit id="tl_form.bkGeneratePlaceholder.1">
                 <source>In der E-Mail Benachrichtigung können Platzhalter wie ##form_company_name## verwendet werden.</source>
             </trans-unit>
-            <trans-unit id="tl_form.size.0">
+            <trans-unit id="tl_form.bkImgSize.0">
                 <source>Bildgröße für Logo</source>
             </trans-unit>
             <trans-unit id="tl_form.company_legend">

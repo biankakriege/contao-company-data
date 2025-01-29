@@ -8,12 +8,6 @@
             <trans-unit id="MOD.company.1">
                 <source>Firmen verwalten</source>
             </trans-unit>
-            <trans-unit id="MOD.person.0">
-                <source>Personen</source>
-            </trans-unit>
-            <trans-unit id="MOD.person.1">
-                <source>Personen verwalten</source>
-            </trans-unit>
             <trans-unit id="CTE.bk_company.0">
                 <source>Firmen</source>
             </trans-unit>

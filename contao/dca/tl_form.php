@@ -16,7 +16,7 @@ $table = 'tl_form';
 /*
  * Fields
  */
-$GLOBALS['TL_DCA'][$table]['fields']['companyId'] = [
+$GLOBALS['TL_DCA'][$table]['fields']['bkCompanyId'] = [
     'inputType' => 'select',
     'foreignKey' => CompanyModel::getTable().'.name',
     'eval' => [
@@ -31,19 +31,19 @@ $GLOBALS['TL_DCA'][$table]['fields']['companyId'] = [
     ],
 ];
 
-$GLOBALS['TL_DCA'][$table]['fields']['addSignatureAuto'] = [
+$GLOBALS['TL_DCA'][$table]['fields']['bkAddSignatureAuto'] = [
     'inputType' => 'checkbox',
     'eval' => ['tl_class' => 'clr'],
     'sql' => "char(1) NOT NULL default ''",
 ];
 
-$GLOBALS['TL_DCA'][$table]['fields']['generatePlaceholder'] = [
+$GLOBALS['TL_DCA'][$table]['fields']['bkGeneratePlaceholder'] = [
     'inputType' => 'checkbox',
     'eval' => ['tl_class' => 'clr'],
     'sql' => "char(1) NOT NULL default ''",
 ];
 
-$GLOBALS['TL_DCA'][$table]['fields']['size'] = [
+$GLOBALS['TL_DCA'][$table]['fields']['bkImgSize'] = [
     'inputType' => 'imageSize',
     'reference' => &$GLOBALS['TL_LANG']['MSC'],
     'eval' => ['rgxp' => 'natural', 'includeBlankOption' => true, 'nospace' => true, 'helpwizard' => true, 'tl_class' => 'w50 clr'],
@@ -52,9 +52,9 @@ $GLOBALS['TL_DCA'][$table]['fields']['size'] = [
 
 PaletteManipulator::create()
     ->addLegend('company_legend', 'email_legend', PaletteManipulator::POSITION_BEFORE)
-    ->addField('companyId', 'company_legend', PaletteManipulator::POSITION_APPEND)
-    ->addField('size', 'companyId')
-    ->addField('generatePlaceholder', 'companyId')
-    ->addField('addSignatureAuto', 'companyId')
+    ->addField('bkCompanyId', 'company_legend', PaletteManipulator::POSITION_APPEND)
+    ->addField('bkImgSize', 'bkCompanyId')
+    ->addField('bkGeneratePlaceholder', 'bkCompanyId')
+    ->addField('bkAddSignatureAuto', 'bkCompanyId')
     ->applyToPalette('default', $table)
 ;

@@ -10,9 +10,11 @@ declare(strict_types=1);
 
 namespace BiankaKriege\ContaoCompanyData\Controller\ContentElement;
 
+use Contao\BackendTemplate;
 use Contao\ContentModel;
 use Contao\CoreBundle\Controller\ContentElement\AbstractContentElementController;
 use Contao\CoreBundle\DependencyInjection\Attribute\AsContentElement;
+use Contao\CoreBundle\Routing\ScopeMatcher;
 use Contao\CoreBundle\Twig\FragmentTemplate;
 use BiankaKriege\ContaoCompanyData\Helper\DataHelper;
 use BiankaKriege\ContaoCompanyData\Helper\ImageHelper;
@@ -30,9 +32,9 @@ class BkPersonListController extends AbstractContentElementController
         private readonly ImageHelper     $imageHelper,
         private readonly TwigEnvironment $twig,
         private readonly DataHelper      $dataHelper,
+        private readonly ScopeMatcher $scopeMatcher
     )
     {
-
     }
 
     /**
@@ -45,10 +47,17 @@ class BkPersonListController extends AbstractContentElementController
 
     protected function getResponse(FragmentTemplate $template, ContentModel $model, Request $request): Response
     {
+        if ($this->scopeMatcher->isBackendRequest($request)) {
+            $template = new BackendTemplate('be_wildcard');
+            $template->wildcard = '### PERSON LIST ###';
+
+            return new Response($template->parse());
+        }
+
         $list = [];
         $people = PersonModel::findBy(
             ['pid=?', 'published=?'],
-            [$model->companyId, 1],
+            [$model->bkCompanyId, 1],
         );
 
         if (null !== $people) {

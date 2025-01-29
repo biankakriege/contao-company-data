@@ -12,15 +12,9 @@ use BiankaKriege\ContaoCompanyData\Controller\ContentElement\BkCompanyContactCon
 use BiankaKriege\ContaoCompanyData\Controller\FrontendModule\BkCompanyLogoController;
 use BiankaKriege\ContaoCompanyData\Model\CompanyModel;
 
-$GLOBALS['TL_DCA']['tl_module']['fields']['link'] = [
-    'inputType' => 'text',
-    'eval' => [
-        'tl_class' => 'clr w50', 'rgxp' => 'url', 'decodeEntities' => true, 'maxlength' => 255, 'dcaPicker' => true, 'addWizardClass' => false,
-    ],
-    'sql' => "varchar(255) NOT NULL default ''",
-];
+$table = 'tl_module';
 
-$GLOBALS['TL_DCA']['tl_module']['fields']['companyId'] = [
+$GLOBALS['TL_DCA'][$table]['fields']['bkCompanyId'] = [
     'inputType' => 'select',
     'foreignKey' => CompanyModel::getTable().'.name',
     'eval' => [
@@ -36,56 +30,21 @@ $GLOBALS['TL_DCA']['tl_module']['fields']['companyId'] = [
     ],
 ];
 
-$GLOBALS['TL_DCA']['tl_module']['fields']['companyName'] = [
+$GLOBALS['TL_DCA'][$table]['fields']['bkSelectable'] = [
     'exclude' => true,
     'inputType' => 'checkbox',
-    'sql' => "char(1) NOT NULL default ''",
-];
-
-$GLOBALS['TL_DCA']['tl_module']['fields']['showImage'] = [
-    'exclude' => true,
-    'inputType' => 'checkbox',
-    'sql' => "char(1) NOT NULL default ''",
-];
-
-$GLOBALS['TL_DCA']['tl_module']['fields']['showAddress'] = [
-    'exclude' => true,
-    'inputType' => 'checkbox',
-    'sql' => "char(1) NOT NULL default ''",
-];
-
-$GLOBALS['TL_DCA']['tl_module']['fields']['showCountry'] = [
-    'exclude' => true,
-    'inputType' => 'checkbox',
-    'sql' => "char(1) NOT NULL default ''",
-];
-
-$GLOBALS['TL_DCA']['tl_module']['fields']['email'] = [
-    'exclude' => true,
-    'inputType' => 'checkbox',
-    'sql' => "char(1) NOT NULL default ''",
-];
-
-$GLOBALS['TL_DCA']['tl_module']['fields']['phone'] = [
-    'exclude' => true,
-    'inputType' => 'checkbox',
-    'sql' => "char(1) NOT NULL default ''",
-];
-
-$GLOBALS['TL_DCA']['tl_module']['fields']['website'] = [
-    'exclude' => true,
-    'inputType' => 'checkbox',
-    'sql' => "char(1) NOT NULL default ''",
+    'eval' => ['multiple' => true, 'mandatory' => true],
+    'sql' => "blob NULL"
 ];
 
 $GLOBALS['TL_DCA']['tl_module']['palettes'][BkCompanyLogoController::TYPE] = <<<'EOD'
         {type_legend},name,type;
-        {company_legend},companyId,rootPage,imgSize;
+        {company_legend},bkCompanyId,rootPage,imgSize;
     EOD;
 
 $GLOBALS['TL_DCA']['tl_module']['palettes'][BkCompanyContactController::TYPE] = <<<'EOD'
         {title_legend},name,type,headline;
-        {company_legend},companyId,companyName,showAddress,showCountry,email,phone,website,showImage,imgSize;
+        {company_legend},bkCompanyId,bkSelectable,imgSize;
         {template_legend:hide},customTpl;
         {protected_legend:hide},protected;
         {expert_legend:hide},guests,cssID,space;

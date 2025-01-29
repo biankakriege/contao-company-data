@@ -21,22 +21,16 @@
                 <source>Telefon</source>
             </trans-unit>
             <trans-unit id="tl_bk_person.mobile.0">
-                <source>Mobilnummer</source>
+                <source>Mobil</source>
             </trans-unit>
             <trans-unit id="tl_bk_person.fax.0">
-                <source>Faxnummer</source>
+                <source>Fax</source>
             </trans-unit>
             <trans-unit id="tl_bk_person.email.0">
                 <source>E-Mail</source>
             </trans-unit>
             <trans-unit id="tl_bk_person.website.0">
                 <source>Webadresse</source>
-            </trans-unit>
-            <trans-unit id="tl_bk_person.mobile.0">
-                <source>Mobilnummer</source>
-            </trans-unit>
-            <trans-unit id="tl_bk_person.fax.0">
-                <source>Faxnummer</source>
             </trans-unit>
             <trans-unit id="tl_bk_person.street.0">
                 <source>Straße und Hausnummer</source>
@@ -46,6 +40,9 @@
             </trans-unit>
             <trans-unit id="tl_bk_person.city.0">
                 <source>Ort</source>
+            </trans-unit>
+            <trans-unit id="tl_bk_person.country.0">
+                <source>Land</source>
             </trans-unit>
             <trans-unit id="tl_bk_person.published.0">
                 <source>Veröffentlichen</source>

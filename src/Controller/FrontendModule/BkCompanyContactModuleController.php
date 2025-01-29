@@ -30,7 +30,7 @@ class BkCompanyContactModuleController extends AbstractFrontendModuleController
 
     protected function getResponse($template, ModuleModel $model, Request $request): Response
     {
-        $company = CompanyModel::findById($model->companyId);
+        $company = CompanyModel::findById($model->bkCompanyId);
         $this->dataHelper->getCompanyContact($company, $model, $template);
 
         return $template->getResponse();

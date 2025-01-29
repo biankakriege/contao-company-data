@@ -2,32 +2,17 @@
 <xliff version="1.1">
     <file datatype="php" original="contao/languages/en/tl_module.php" source-language="en">
         <body>
-            <trans-unit id="tl_module.companyId.0">
+            <trans-unit id="tl_module.bkCompanyId.0">
                 <source>Anzuzeigende Firma</source>
             </trans-unit>
-            <trans-unit id="tl_module.companyId.1">
+            <trans-unit id="tl_module.bkCompanyId.1">
                 <source>Wählen Sie die Firma, für die Sie die Kontaktdaten anzeigen lassen wollen</source>
             </trans-unit>
-            <trans-unit id="tl_module.companyName.0">
-                <source>Firmennamen anzeigen</source>
-            </trans-unit>
-            <trans-unit id="tl_module.showAddress.0">
-                <source>Adresse anzeigen</source>
-            </trans-unit>
-            <trans-unit id="tl_module.showCountry.0">
-                <source>Land anzeigen</source>
-            </trans-unit>
-            <trans-unit id="tl_module.email.0">
-                <source>E-Mail anzeigen</source>
-            </trans-unit>
-            <trans-unit id="tl_module.phone.0">
-                <source>Telefonnummer anzeigen</source>
-            </trans-unit>
-            <trans-unit id="tl_module.website.0">
-                <source>Webadresse anzeigen</source>
-            </trans-unit>
-            <trans-unit id="tl_module.showImage.0">
-                <source>Logo anzeigen</source>
+             <trans-unit id="tl_module.bkSelectable.0">
+                <source>Auswahl Felder</source>
+             </trans-unit>
+             <trans-unit id="tl_module.bkSelectable.1">
+                <source>Wählen Sie aus, welche Daten auf der Webseite ausgegeben werden sollen.</source>
             </trans-unit>
             <trans-unit id="tl_module.company_legend">
                 <source>Firmen-Einstellungen</source>

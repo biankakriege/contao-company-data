@@ -12,6 +12,7 @@ use Contao\DataContainer;
 use Contao\DC_Table;
 use BiankaKriege\ContaoCompanyData\Model\CompanyModel;
 use BiankaKriege\ContaoCompanyData\Model\PersonModel;
+use Contao\System;
 
 $GLOBALS['TL_DCA'][PersonModel::TABLE] =
 [
@@ -52,7 +53,7 @@ $GLOBALS['TL_DCA'][PersonModel::TABLE] =
     ],
     // Palettes
     'palettes' => [
-        'default' => 'pid;{personal_legend},title,name,position,singleSRC;{contact_legend},phone,mobile,email,website;{address_legend},street,postal,city;{published_legend},published;',
+        'default' => 'pid;{personal_legend},title,name,position,singleSRC;{contact_legend},phone,mobile,fax,email,website;{address_legend},street,postal,city,country;{published_legend},published;',
     ],
     // Fields
     'fields' => [
@@ -75,63 +76,75 @@ $GLOBALS['TL_DCA'][PersonModel::TABLE] =
         ],
         'title' => [
             'inputType' => 'text',
-            'eval' => ['maxlength' => 255, 'feEditable' => true, 'feViewable' => true, 'feGroup' => 'personal', 'tl_class' => 'w50'],
+            'eval' => ['maxlength' => 255, 'bkSelectable' => true, 'tl_class' => 'w50'],
             'sql' => ['type' => 'string', 'length' => 255, 'default' => '', 'notnull' => false],
         ],
         'name' => [
             'search' => true,
             'sorting' => true,
             'inputType' => 'text',
-            'eval' => ['mandatory' => true, 'maxlength' => 255, 'feEditable' => true, 'feViewable' => true, 'feGroup' => 'personal', 'tl_class' => 'w50'],
+            'eval' => ['mandatory' => true, 'maxlength' => 255, 'bkSelectable' => true, 'tl_class' => 'w50'],
             'sql' => ['type' => 'string', 'length' => 255, 'default' => '', 'notnull' => false],
         ],
         'position' => [
             'inputType' => 'text',
-            'eval' => ['maxlength' => 255, 'feEditable' => true, 'feViewable' => true, 'feGroup' => 'personal', 'tl_class' => 'w50'],
+            'eval' => ['maxlength' => 255, 'bkSelectable' => true, 'tl_class' => 'w50'],
             'sql' => ['type' => 'string', 'length' => 255, 'default' => '', 'notnull' => false],
         ],
         'street' => [
             'inputType' => 'text',
-            'eval' => ['maxlength' => 255, 'feEditable' => true, 'feViewable' => true, 'feGroup' => 'address', 'tl_class' => 'w50'],
+            'eval' => ['maxlength' => 255, 'bkSelectable' => true,  'tl_class' => 'w50'],
             'sql' => ['type' => 'string', 'length' => 255, 'default' => '', 'notnull' => false],
         ],
         'postal' => [
             'inputType' => 'text',
-            'eval' => ['maxlength' => 32, 'feEditable' => true, 'feViewable' => true, 'feGroup' => 'address', 'tl_class' => 'w50'],
+            'eval' => ['maxlength' => 32, 'bkSelectable' => true,  'tl_class' => 'w50'],
             'sql' => ['type' => 'string', 'length' => 32, 'default' => '', 'notnull' => false],
         ],
         'city' => [
             'inputType' => 'text',
-            'eval' => ['maxlength' => 255, 'feEditable' => true, 'feViewable' => true, 'feGroup' => 'address', 'tl_class' => 'w50'],
+            'eval' => ['maxlength' => 255, 'bkSelectable' => true,  'tl_class' => 'w50'],
             'sql' => ['type' => 'string', 'length' => 255, 'default' => '', 'notnull' => false],
+        ],
+        'country' => [
+            'inputType' => 'select',
+            'eval' => [
+                'tl_class' => 'w50',
+                'includeBlankOption' => true,
+                'chosen' => true,
+                'bkSelectable' => true,
+            ],
+            'options_callback' => static fn () => System::getContainer()->get('contao.intl.countries')->getCountries(),
+            'sql' => ['type' => 'string', 'length' => 2, 'default' => '', 'notnull' => false],
         ],
         'phone' => [
             'inputType' => 'text',
-            'eval' => [
-                'tl_class' => 'w50',
-            ],
+            'eval' => ['tl_class' => 'w50', 'bkSelectable' => true],
             'sql' => ['type' => 'string', 'length' => 255, 'default' => '', 'notnull' => false],
         ],
         'mobile' => [
             'inputType' => 'text',
-            'eval' => [
-                'tl_class' => 'w50',
-            ],
+            'eval' => ['tl_class' => 'w50', 'bkSelectable' => true],
+            'sql' => ['type' => 'string', 'length' => 255, 'default' => '', 'notnull' => false],
+        ],
+        'fax' => [
+            'inputType' => 'text',
+            'eval' => ['tl_class' => 'w50', 'bkSelectable' => true],
             'sql' => ['type' => 'string', 'length' => 255, 'default' => '', 'notnull' => false],
         ],
         'email' => [
             'inputType' => 'text',
-            'eval' => ['maxlength' => 255, 'rgxp' => 'email', 'unique' => false, 'decodeEntities' => true, 'feEditable' => true, 'feViewable' => true, 'feGroup' => 'contact', 'tl_class' => 'w50'],
+            'eval' => ['maxlength' => 255, 'rgxp' => 'email', 'unique' => false, 'decodeEntities' => true, 'bkSelectable' => true, 'tl_class' => 'w50'],
             'sql' => ['type' => 'string', 'length' => 255, 'default' => '', 'notnull' => false],
         ],
         'website' => [
             'inputType' => 'text',
-            'eval' => ['mandatory' => false, 'rgxp' => 'url', 'maxlength' => 255, 'decodeEntities' => true, 'feEditable' => true, 'feViewable' => true, 'feGroup' => 'contact', 'tl_class' => 'w50'],
+            'eval' => ['mandatory' => false, 'rgxp' => 'url', 'maxlength' => 255, 'decodeEntities' => true, 'bkSelectable' => true, 'tl_class' => 'w50'],
             'sql' => ['type' => 'string', 'length' => 255, 'default' => '', 'notnull' => false],
         ],
         'singleSRC' => [
             'inputType' => 'fileTree',
-            'eval' => ['tl_class' => 'clr', 'fieldType' => 'radio', 'filesOnly' => true, 'extensions' => '%contao.image.valid_extensions%'],
+            'eval' => ['tl_class' => 'clr', 'fieldType' => 'radio', 'filesOnly' => true, 'extensions' => '%contao.image.valid_extensions%', 'bkSelectable' => true],
             'sql' => 'binary(16) NULL',
         ],
         'published' => [

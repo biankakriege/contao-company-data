@@ -22,23 +22,23 @@ class ProcessFormDataListener
 
     public function __invoke(array &$submittedData, array $formData, array|null $files, array $labels, Form $form): void
     {
-        $hbeData = CompanyModel::findById($form->companyId);
+        $hbeData = CompanyModel::findById($form->bkCompanyId);
 
-        if (1 === (int) $form->addSignatureAuto) {
+        if (1 === (int) $form->bkAddSignatureAuto) {
             $submittedData['company'] = $this->generateSignature($hbeData, $form);
         }
 
-        if (1 === (int) $form->generatePlaceholder) {
-            $submittedData = $this->generatePlaceholder($hbeData, $submittedData, $form);
+        if (1 === (int) $form->bkGeneratePlaceholder) {
+            $submittedData = $this->bkGeneratePlaceholder($hbeData, $submittedData, $form);
         }
     }
 
-    private function generatePlaceholder($hbeData, $submittedData, $form)
+    private function bkGeneratePlaceholder($hbeData, $submittedData, $form)
     {
         foreach ($hbeData->row() as $key => $field) {
             $submittedData['company_'.$key] = $field;
             if ('singleSRC' === $key && null !== $hbeData->singleSRC) {
-                $logo = $this->imageHelper->getImage($hbeData->singleSRC, $form->size);
+                $logo = $this->imageHelper->getImage($hbeData->singleSRC, $form->bkImgSize);
                 if ($logo) {
                     $submittedData['company_logo'] = '<img alt="'.$logo->getMetadata()->getAlt().'" src="'.Environment::get('url').$logo->getSchemaOrgData()['contentUrl'].'" style="border:0; outline:none; text-decoration:none; display:block;" >';
                 }
@@ -51,7 +51,7 @@ class ProcessFormDataListener
     private function generateSignature($hbeData, $form): string
     {
         if ($hbeData->singleSRC) {
-            $logo = $this->imageHelper->getImage($hbeData->singleSRC, $form->size);
+            $logo = $this->imageHelper->getImage($hbeData->singleSRC, $form->bkImgSize);
             if ($logo) {
                 $hbeData->imageSrc = Environment::get('url').$logo->getSchemaOrgData()['contentUrl'];
                 $hbeData->imageAlt = $logo->getMetadata()->getAlt();

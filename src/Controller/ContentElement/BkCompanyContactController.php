@@ -35,7 +35,7 @@ class BkCompanyContactController extends AbstractContentElementController
 
     protected function getResponse(FragmentTemplate $template, ContentModel $model, Request $request): Response
     {
-        $company = CompanyModel::findById($model->companyId);
+        $company = CompanyModel::findById($model->bkCompanyId);
 
         if ($this->scopeMatcher->isBackendRequest($request)) {
             $template = new BackendTemplate('be_wildcard');
@@ -43,7 +43,7 @@ class BkCompanyContactController extends AbstractContentElementController
             if (!empty($model->headline)) {
                 $template->title .= StringUtil::deserialize($model->headline)['value'];
             }
-            if (!empty($model->companyId)) {
+            if (!empty($model->bkCompanyId)) {
                 $template->title .= ' '.$GLOBALS['TL_LANG']['MOD']['company'][0].' '.$company->name;
             }
 

@@ -37,14 +37,15 @@ class BkPersonSingleController extends AbstractContentElementController
 
     protected function getResponse(FragmentTemplate $template, ContentModel $model, Request $request): Response
     {
+        $person = PersonModel::findById($model->bkPersonId);
+
         if ($this->scopeMatcher->isBackendRequest($request)) {
+            $title = (null !== $person) ? $person->name : 'PERSON SINGLE';
             $template = new BackendTemplate('be_wildcard');
-            $template->wildcard = '### PERSON SINGLE ###';
+            $template->wildcard = '### '.strtoupper($title).' ###';
 
             return new Response($template->parse());
         }
-
-        $person = PersonModel::findById($model->bkPersonId);
 
         if (null !== $person && $person->published) {
 

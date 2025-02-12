@@ -40,8 +40,8 @@ $GLOBALS['TL_DCA'][$table] = [
     ],
     'palettes' => [
         'default' => 'name,singleSRC;'.
-            '{address_legend},city,postal,street,country;'.
-            '{contact_legend},email,phone,website;'.
+            '{address_legend},street,postal,city,country;'.
+            '{contact_legend},phone,fax,email,website;'.
             '{imprint_legend},imprintName,imprintRepresentative,imprintPublicRegistry,imprintPublicRegistryNumber,imprintFinancialDistrict,imprintVatIdentificationNumber,imprintTaxIdentificationNumber,imprintEconomyIdentificationNumber;',
     ],
     'fields' => [
@@ -125,6 +125,11 @@ $GLOBALS['TL_DCA'][$table] = [
                 'feGroup' => 'contact',
             ],
             'sql' => ['type' => 'string', 'length' => 64, 'default' => '', 'notnull' => false],
+        ],
+        'fax' => [
+            'inputType' => 'text',
+            'eval' => ['tl_class' => 'w50', 'bkSelectable' => true, 'feGroup' => 'contact'],
+            'sql' => ['type' => 'string', 'length' => 255, 'default' => '', 'notnull' => false],
         ],
         'email' => [
             'inputType' => 'text',

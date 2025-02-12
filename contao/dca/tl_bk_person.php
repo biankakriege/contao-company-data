@@ -13,6 +13,7 @@ use Contao\DC_Table;
 use BiankaKriege\ContaoCompanyData\Model\CompanyModel;
 use BiankaKriege\ContaoCompanyData\Model\PersonModel;
 use Contao\System;
+use Doctrine\DBAL\Platforms\AbstractMySQLPlatform;
 
 $GLOBALS['TL_DCA'][PersonModel::TABLE] =
 [
@@ -29,33 +30,25 @@ $GLOBALS['TL_DCA'][PersonModel::TABLE] =
         ],
     ],
 
-    // List
     'list' => [
         'sorting' => [
-            'mode' => DataContainer::MODE_SORTABLE,
+            'mode' => DataContainer::MODE_PARENT,
             'fields' => ['sorting'],
             'defaultSearchField' => 'name',
             'flag' => DataContainer::SORT_INITIAL_LETTER_ASC,
             'panelLayout' => 'filter;sort,search,limit',
-            'renderAsGrid'            => true,
-            'limitHeight'             => 160
+            'headerFields'  => ['name', 'street', 'postal', 'city'],
         ],
         'label' => [
-            'fields' => ['pid', 'name', 'position', 'email', 'phone'],
+            'fields' => ['name', 'position', 'email', 'phone'],
             'showColumns' => true,
         ],
-        'operations' => [
-            'edit',
-            'copy',
-            'toggle',
-            'delete',
-        ],
     ],
-    // Palettes
+
     'palettes' => [
-        'default' => 'pid;{personal_legend},title,name,position,singleSRC;{contact_legend},phone,mobile,fax,email,website;{address_legend},street,postal,city,country;{published_legend},published;',
+        'default' => '{personal_legend},title,name,position,officeHours,singleSRC;{contact_legend},phone,mobile,fax,email,website;{address_legend},street,postal,city,country;{published_legend},published;',
     ],
-    // Fields
+
     'fields' => [
         'id' => [
             'sql' => 'int(10) unsigned NOT NULL auto_increment',
@@ -67,11 +60,6 @@ $GLOBALS['TL_DCA'][PersonModel::TABLE] =
             'sql' => 'int(10) unsigned NOT NULL default 0'
         ],
         'pid' => [
-            'filter' => true,
-            'sorting' => true,
-            'inputType' => 'select',
-            'foreignKey' => 'tl_bk_company.name',
-            'eval' => ['mandatory' => true],
             'sql' => 'int(10) unsigned NOT NULL default 0',
         ],
         'title' => [
@@ -83,7 +71,7 @@ $GLOBALS['TL_DCA'][PersonModel::TABLE] =
             'search' => true,
             'sorting' => true,
             'inputType' => 'text',
-            'eval' => ['mandatory' => true, 'maxlength' => 255, 'bkSelectable' => true, 'tl_class' => 'w50'],
+            'eval' => ['mandatory' => true, 'maxlength' => 255, 'bkSelectable' => true, 'tl_class' => 'w50 clr'],
             'sql' => ['type' => 'string', 'length' => 255, 'default' => '', 'notnull' => false],
         ],
         'position' => [
@@ -134,7 +122,7 @@ $GLOBALS['TL_DCA'][PersonModel::TABLE] =
         ],
         'email' => [
             'inputType' => 'text',
-            'eval' => ['maxlength' => 255, 'rgxp' => 'email', 'unique' => false, 'decodeEntities' => true, 'bkSelectable' => true, 'tl_class' => 'w50'],
+            'eval' => ['maxlength' => 255, 'rgxp' => 'email', 'unique' => false, 'decodeEntities' => true, 'bkSelectable' => true, 'tl_class' => 'w50 clr'],
             'sql' => ['type' => 'string', 'length' => 255, 'default' => '', 'notnull' => false],
         ],
         'website' => [
@@ -146,6 +134,11 @@ $GLOBALS['TL_DCA'][PersonModel::TABLE] =
             'inputType' => 'fileTree',
             'eval' => ['tl_class' => 'clr', 'fieldType' => 'radio', 'filesOnly' => true, 'extensions' => '%contao.image.valid_extensions%', 'bkSelectable' => true],
             'sql' => 'binary(16) NULL',
+        ],
+        'officeHours' => [
+            'inputType' => 'keyValueWizard',
+            'eval' => ['tl_class' => 'w50 clr', 'maxlength' => 255,'bkSelectable' => true, 'style' => 'max-width: 100%;'],
+            'sql' => ['type' => 'blob', 'length' => AbstractMySQLPlatform::LENGTH_LIMIT_BLOB, 'notnull' => false],
         ],
         'published' => [
             'toggle' => true,

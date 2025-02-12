@@ -18,7 +18,7 @@
                 <source>Postleitzahl</source>
             </trans-unit>
             <trans-unit id="tl_bk_company.street.0">
-                <source>Adresse</source>
+                <source>Straße</source>
             </trans-unit>
             <trans-unit id="tl_bk_company.country.0">
                 <source>Land</source>
@@ -28,6 +28,9 @@
             </trans-unit>
             <trans-unit id="tl_bk_company.phone.0">
                 <source>Telefon</source>
+            </trans-unit>
+            <trans-unit id="tl_bk_company.fax.0">
+                <source>Fax</source>
             </trans-unit>
             <trans-unit id="tl_bk_company.website.0">
                 <source>Webseite</source>

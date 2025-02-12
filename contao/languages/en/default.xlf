@@ -3,10 +3,10 @@
     <file datatype="php" original="contao/languages/en/default.php" source-language="en">
         <body>
             <trans-unit id="MOD.company.0">
-                <source>Firma</source>
+                <source>Unternehmensdaten</source>
             </trans-unit>
             <trans-unit id="MOD.company.1">
-                <source>Firmen verwalten</source>
+                <source>Unternehmensdaten verwalten</source>
             </trans-unit>
             <trans-unit id="CTE.bk_company.0">
                 <source>Firmen</source>

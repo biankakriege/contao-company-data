@@ -26,7 +26,7 @@ $GLOBALS['TL_DCA'][$table]['fields']['bkCompanyId'] = [
         'mandatory' => true,
         'chosen' => true,
         'multiple' => false,
-        'tl_class' => 'w100',
+        'tl_class' => 'clr w50',
     ],
     'sql' => "int(10) unsigned NOT NULL default '0'",
     'relation' => [
@@ -42,7 +42,7 @@ $GLOBALS['TL_DCA'][$table]['fields']['bkPersonId'] = [
         'mandatory' => true,
         'chosen' => true,
         'multiple' => false,
-        'tl_class' => 'w100',
+        'tl_class' => 'clr w50',
     ],
     'sql' => "int(10) unsigned NOT NULL default '0'",
     'relation' => [
@@ -54,7 +54,7 @@ $GLOBALS['TL_DCA'][$table]['fields']['bkPersonId'] = [
 $GLOBALS['TL_DCA'][$table]['fields']['bkSelectable'] = [
     'exclude' => true,
     'inputType' => 'checkbox',
-    'eval' => ['multiple' => true, 'mandatory' => true],
+    'eval' => ['multiple' => true, 'mandatory' => true, 'tl_class' => 'clr w50'],
     'sql' => "blob NULL"
 ];
 

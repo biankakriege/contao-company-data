@@ -28,7 +28,7 @@
         <div class="person__content">
             {% if phone|default %}
                 <span class="label">{{ attribute(attribute(translation, 'phone' ),0) }}</span>
-                <span class="value">{{ phone }}</span>
+                <a href="tel:{{ phoneFormatted }}" class="value" title="{{ phone }}">{{ phone }}</a>
             {% endif %}
             {% if mobile|default %}
                 <span class="label">{{ attribute(attribute(translation, 'mobile' ),0) }}</span>
@@ -56,6 +56,14 @@
             </div>
             {% if country|default %}
                 <span class="country">{{ country }}</span>
+            {% endif %}
+        </div>
+    {% endblock %}
+
+    {% block bk_office %}
+        <div class="person__content">
+            {% if officeHours|default %}
+                <span>{{ officeHours }}</span>
             {% endif %}
         </div>
     {% endblock %}

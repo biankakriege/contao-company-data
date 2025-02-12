@@ -8,7 +8,7 @@
 {% block content %}
     {% if company %}
         <div class="company">
-            {% if logo %}
+            {% if logo|default %}
                 {% with {figure: logo} %}{{ block('figure_component') }}{% endwith %}
             {% endif %}
             <div class="company__element">

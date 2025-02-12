@@ -17,6 +17,8 @@ use Contao\StringUtil;
 use Contao\System;
 use BiankaKriege\ContaoCompanyData\Model\CompanyModel;
 use BiankaKriege\ContaoCompanyData\Model\PersonModel;
+use libphonenumber\PhoneNumberUtil;
+use libphonenumber\PhoneNumberFormat;
 
 class DataHelper
 {
@@ -31,19 +33,38 @@ class DataHelper
 
         foreach ($selected as $value) {
             if (!empty($person->{$value})) {
+
                 if ($value === 'singleSRC') {
                     $data['image'] = $this->imageHelper->getImage($person->singleSRC, $model->size);
                 } else {
-                    $data[$value] = $person->$value;
+                    $data[$value] = $person->{$value};
                 }
+
                 if ($value === 'country') {
-                    $data[$value] = System::getContainer()->get('contao.intl.countries')->getCountries()[strtoupper($person->{$value})];
+                    $data[$value] = System::getContainer()
+                        ->get('contao.intl.countries')
+                        ->getCountries()[strtoupper($person->{$value})]
+                    ;
+                }
+
+                if ($value === 'officeHours') {
+                    $data[$value] =  StringUtil::deserialize($person->{$value});
+                }
+
+                if ($value === 'phone') {
+                    $phoneUtil = PhoneNumberUtil::getInstance();
+                    $phoneNumberProto = $phoneUtil->parse($person->{$value}, "DE");
+
+                    $data['phoneFormatted'] = $phoneUtil->format($phoneNumberProto, PhoneNumberFormat::E164);
+                    $data['phone'] = $person->{$value};
                 }
             }
         }
 
         System::loadLanguageFile(PersonModel::TABLE);
+
         $data['translation'] = $GLOBALS['TL_LANG'][PersonModel::TABLE];
+
         return $data;
     }
 
@@ -64,6 +85,7 @@ class DataHelper
                 } else {
                     $data[$arrFields[$value]['eval']['feGroup']][$value] = $company->{$value};
                 }
+
                 if ($value === 'country') {
                     $data[$arrFields[$value]['eval']['feGroup']][$value] = System::getContainer()->get('contao.intl.countries')->getCountries()[strtoupper($company->{$value})];
                 }

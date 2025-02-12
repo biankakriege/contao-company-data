@@ -18,22 +18,22 @@
                 <source>Bild</source>
             </trans-unit>
             <trans-unit id="tl_bk_person.phone.0">
-                <source>Telefon</source>
+                <source>Telefonnummer</source>
             </trans-unit>
             <trans-unit id="tl_bk_person.mobile.0">
-                <source>Mobil</source>
+                <source>Handynummer</source>
             </trans-unit>
             <trans-unit id="tl_bk_person.fax.0">
-                <source>Fax</source>
+                <source>Faxnummer</source>
             </trans-unit>
             <trans-unit id="tl_bk_person.email.0">
                 <source>E-Mail</source>
             </trans-unit>
             <trans-unit id="tl_bk_person.website.0">
-                <source>Webadresse</source>
+                <source>Webseite</source>
             </trans-unit>
             <trans-unit id="tl_bk_person.street.0">
-                <source>Straße und Hausnummer</source>
+                <source>Straße</source>
             </trans-unit>
             <trans-unit id="tl_bk_person.postal.0">
                 <source>Postleitzahl</source>
@@ -43,6 +43,15 @@
             </trans-unit>
             <trans-unit id="tl_bk_person.country.0">
                 <source>Land</source>
+            </trans-unit>
+            <trans-unit id="tl_bk_person.officeHours.0">
+                <source>Sprechzeiten</source>
+            </trans-unit>
+            <trans-unit id="tl_bk_person.officeHours.eval.keyLabel">
+                <source>Wochentage</source>
+            </trans-unit>
+            <trans-unit id="tl_bk_person.officeHours.eval.valueLabel">
+                <source>Zeiten</source>
             </trans-unit>
             <trans-unit id="tl_bk_person.published.0">
                 <source>Veröffentlichen</source>
@@ -54,10 +63,10 @@
                 <source>Allgemein</source>
             </trans-unit>
             <trans-unit id="tl_bk_person.contact_legend">
-                <source>Kontakt</source>
+                <source>Kontaktdaten</source>
             </trans-unit>
             <trans-unit id="tl_bk_person.address_legend">
-                <source>Adresse</source>
+                <source>Adressdaten</source>
             </trans-unit>
             <trans-unit id="tl_bk_person.published_legend">
                 <source>Veröffentlichung</source>

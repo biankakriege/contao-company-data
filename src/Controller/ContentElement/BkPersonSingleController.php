@@ -48,8 +48,6 @@ class BkPersonSingleController extends AbstractContentElementController
         }
 
         if (null !== $person && $person->published) {
-
-
             $data = $this->dataHelper->getPersonData($person, $model);
 
             $template->list = $this->twig->render('@Contao/content_element/content-person-list.html.twig', $data);

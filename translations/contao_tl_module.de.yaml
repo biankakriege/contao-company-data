@@ -1,0 +1,8 @@
+tl_module:
+    bkCompanyId:
+        - Anzuzeigende Firma
+        - Wähle die Firma, deren Kontaktdaten angezeigt werden sollen.
+    bkSelectable:
+        - Auswahl Felder
+        - Wähle aus, welche Daten auf der Webseite ausgegeben werden sollen.
+    company_legend: Firmen-Einstellungen

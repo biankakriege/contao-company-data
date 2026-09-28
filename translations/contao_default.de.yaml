@@ -1,0 +1,20 @@
+MOD:
+    company:
+        - Unternehmensdaten
+        - Unternehmensdaten verwalten
+CTE:
+    bk_company:
+        - Unternehmensdaten
+    bk_company_contact:
+        - Kontaktdaten
+    bk_person_list:
+        - Personen Liste
+    bk_person_single:
+        - Einzelne Person
+FMD:
+    bk_company:
+        - Unternehmensdaten
+    bk_company_logo:
+        - Logo
+    bk_company_contact:
+        - Firmen Kontaktdaten

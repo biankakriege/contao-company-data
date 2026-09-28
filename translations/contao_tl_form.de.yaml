@@ -1,0 +1,13 @@
+tl_form:
+    bkCompanyId:
+        - Firma
+        - Wähle die gewünschte Firma aus.
+    bkAddSignatureAuto:
+        - Signatur anhängen
+        - Template mail_signature.html.twig kann überschrieben werden.
+    bkGeneratePlaceholder:
+        - Platzhalter generieren
+        - 'In der E-Mail-Benachrichtigung können Platzhalter wie ##form_company_name## verwendet werden.'
+    bkImgSize:
+        - Bildgröße für Logo
+    company_legend: Formulardaten mit Firma anreichern

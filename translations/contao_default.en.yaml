@@ -1,0 +1,20 @@
+MOD:
+    company:
+        - Company data
+        - Manage company data
+CTE:
+    bk_company:
+        - Company data
+    bk_company_contact:
+        - Contact details
+    bk_person_list:
+        - Person list
+    bk_person_single:
+        - Single person
+FMD:
+    bk_company:
+        - Company data
+    bk_company_logo:
+        - Logo
+    bk_company_contact:
+        - Company contact details

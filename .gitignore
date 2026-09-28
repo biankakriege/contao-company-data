@@ -13,3 +13,4 @@ Thumbs.db
 !.idea/jsLinters
 .idea/jsLinters/*
 !.idea/jsLinters/jshint.xml
+/.mcp.json

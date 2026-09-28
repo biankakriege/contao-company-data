@@ -1,0 +1,8 @@
+tl_module:
+    bkCompanyId:
+        - Company to display
+        - Select the company whose contact details should be displayed.
+    bkSelectable:
+        - Field selection
+        - Select which data should be displayed on the website.
+    company_legend: Company settings

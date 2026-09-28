@@ -1,0 +1,13 @@
+tl_form:
+    bkCompanyId:
+        - Company
+        - Select the desired company.
+    bkAddSignatureAuto:
+        - Append signature
+        - The template mail_signature.html.twig can be overridden.
+    bkGeneratePlaceholder:
+        - Generate placeholders
+        - 'Placeholders such as ##form_company_name## can be used in the email notification.'
+    bkImgSize:
+        - Logo image size
+    company_legend: Enrich form data with company

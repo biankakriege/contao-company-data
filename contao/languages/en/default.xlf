@@ -9,7 +9,7 @@
                 <source>Unternehmensdaten verwalten</source>
             </trans-unit>
             <trans-unit id="CTE.bk_company.0">
-                <source>Firmen</source>
+                <source>Unternehmensdaten</source>
             </trans-unit>
             <trans-unit id="CTE.bk_company_contact.0">
                 <source>Kontaktdaten</source>
@@ -21,7 +21,7 @@
                 <source>Einzelne Person</source>
             </trans-unit>
             <trans-unit id="FMD.bk_company.0">
-                <source>Firmen</source>
+                <source>Unternehmensdaten</source>
             </trans-unit>
             <trans-unit id="FMD.bk_company_logo.0">
                 <source>Logo</source>

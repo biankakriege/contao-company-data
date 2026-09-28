@@ -10,11 +10,9 @@ declare(strict_types=1);
 
 namespace BiankaKriege\ContaoCompanyData\Controller\ContentElement;
 
-use Contao\BackendTemplate;
 use Contao\ContentModel;
 use Contao\CoreBundle\Controller\ContentElement\AbstractContentElementController;
 use Contao\CoreBundle\DependencyInjection\Attribute\AsContentElement;
-use Contao\CoreBundle\Routing\ScopeMatcher;
 use Contao\CoreBundle\Twig\FragmentTemplate;
 use BiankaKriege\ContaoCompanyData\Helper\DataHelper;
 use BiankaKriege\ContaoCompanyData\Model\PersonModel;
@@ -29,8 +27,7 @@ class BkPersonSingleController extends AbstractContentElementController
 
     public function __construct(
         private readonly TwigEnvironment $twig,
-        private readonly DataHelper $dataHelper,
-        private readonly ScopeMatcher $scopeMatcher
+        private readonly DataHelper $dataHelper
     )
     {
     }
@@ -38,14 +35,6 @@ class BkPersonSingleController extends AbstractContentElementController
     protected function getResponse(FragmentTemplate $template, ContentModel $model, Request $request): Response
     {
         $person = PersonModel::findById($model->bkPersonId);
-
-        if ($this->scopeMatcher->isBackendRequest($request)) {
-            $title = (null !== $person) ? $person->name : 'PERSON SINGLE';
-            $template = new BackendTemplate('be_wildcard');
-            $template->wildcard = '### '.strtoupper($title).' ###';
-
-            return new Response($template->parse());
-        }
 
         if (null !== $person && $person->published) {
             $data = $this->dataHelper->getPersonData($person, $model);

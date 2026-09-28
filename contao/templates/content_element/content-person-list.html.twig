@@ -10,7 +10,9 @@
 
     {% block bk_name %}
         <div class="person__content">
+            {% if title|default %} {% set name = title ~ ' ' ~ name %}{% endif %}
             {% if name|default %}<span class="person__name">{{ name }}</span>{% endif %}
+            {% if companyName|default %}<span class="company__name">{{ companyName }}</span>{% endif %}
             {% if position|default %}<span>{{ position }}</span>{% endif %}
         </div>
     {% endblock %}
@@ -25,6 +27,7 @@
     {% endblock %}
 
     {% block bk_contact %}
+        {% if phone|default or mobile|default or fax|default %}
         <div class="person__content">
             {% if phone|default %}
                 <span class="label">{{ attribute(attribute(translation, 'phone' ),0) }}</span>
@@ -39,9 +42,11 @@
                 <span class="value">{{ fax }}</span>
             {% endif %}
         </div>
+        {% endif %}
     {% endblock %}
 
     {% block bk_address %}
+        {% if street|default or postal|default or city|default or country|default %}
         <div class="person__content">
             {% if street|default %}
                 <span>{{ street }}</span>
@@ -58,13 +63,27 @@
                 <span class="country">{{ country }}</span>
             {% endif %}
         </div>
+        {% endif %}
     {% endblock %}
 
     {% block bk_office %}
-        <div class="person__content">
-            {% if officeHours|default %}
-                <span>{{ officeHours }}</span>
-            {% endif %}
-        </div>
+        {% if officeHours|default %}
+        {% set rows = officeHours|filter(row => row.value is not empty) %}
+
+        {% if rows is not empty %}
+            <dl class="person__content opening-hours">
+                {% for row in rows %}
+                    <dt class="opening-hours-day">{{ row.key }}</dt>
+                    <dd class="opening-hours-time">{{ row.value }}</dd>
+                {% endfor %}
+            </dl>
+        {% endif %}
+        {% endif %}
+    {% endblock %}
+
+    {% block bk_href %}
+        {% if href|default %}
+            <a href="{{ href }}" title="{{ href_title }}">{{ href_text }}</a>
+        {% endif %}
     {% endblock %}
 </div>

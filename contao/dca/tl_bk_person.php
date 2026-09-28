@@ -32,21 +32,21 @@ $GLOBALS['TL_DCA'][PersonModel::TABLE] =
 
     'list' => [
         'sorting' => [
-            'mode' => DataContainer::MODE_PARENT,
-            'fields' => ['sorting'],
+            'mode' => DataContainer::MODE_SORTABLE,
+            'fields' => ['name'],
             'defaultSearchField' => 'name',
             'flag' => DataContainer::SORT_INITIAL_LETTER_ASC,
             'panelLayout' => 'filter;sort,search,limit',
             'headerFields'  => ['name', 'street', 'postal', 'city'],
         ],
         'label' => [
-            'fields' => ['name', 'position', 'email', 'phone'],
+            'fields' => ['name', 'position', 'department', 'email', 'phone'],
             'showColumns' => true,
         ],
     ],
 
     'palettes' => [
-        'default' => '{personal_legend},title,name,position,officeHours,singleSRC;{contact_legend},phone,mobile,fax,email,website;{address_legend},street,postal,city,country;{published_legend},published;',
+        'default' => '{personal_legend},name,title,position,department,officeHours,isOfficeRestricted,singleSRC;{contact_legend},phone,mobile,fax,email,website;{address_legend},street,postal,city,country;{redirect_legend},jumpTo;{published_legend},published;',
     ],
 
     'fields' => [
@@ -71,10 +71,16 @@ $GLOBALS['TL_DCA'][PersonModel::TABLE] =
             'search' => true,
             'sorting' => true,
             'inputType' => 'text',
-            'eval' => ['mandatory' => true, 'maxlength' => 255, 'bkSelectable' => true, 'tl_class' => 'w50 clr'],
+            'eval' => ['mandatory' => true, 'maxlength' => 255, 'bkSelectable' => true, 'tl_class' => 'w50'],
             'sql' => ['type' => 'string', 'length' => 255, 'default' => '', 'notnull' => false],
         ],
         'position' => [
+            'inputType' => 'text',
+            'eval' => ['maxlength' => 255, 'bkSelectable' => true, 'tl_class' => 'w50'],
+            'sql' => ['type' => 'string', 'length' => 255, 'default' => '', 'notnull' => false],
+        ],
+        'department' => [
+            'search' => true,
             'inputType' => 'text',
             'eval' => ['maxlength' => 255, 'bkSelectable' => true, 'tl_class' => 'w50'],
             'sql' => ['type' => 'string', 'length' => 255, 'default' => '', 'notnull' => false],
@@ -137,8 +143,20 @@ $GLOBALS['TL_DCA'][PersonModel::TABLE] =
         ],
         'officeHours' => [
             'inputType' => 'keyValueWizard',
-            'eval' => ['tl_class' => 'w50 clr', 'maxlength' => 255,'bkSelectable' => true, 'style' => 'max-width: 100%;'],
+            'eval' => ['tl_class' => 'w50 clr', 'maxlength' => 255, 'bkSelectable' => true, 'style' => 'max-width: 100%;'],
             'sql' => ['type' => 'blob', 'length' => AbstractMySQLPlatform::LENGTH_LIMIT_BLOB, 'notnull' => false],
+        ],
+        'isOfficeRestricted' => [
+            'inputType' => 'checkbox',
+            'eval' => ['tl_class' => 'w50 m12'],
+            'sql' => ['type' => 'boolean', 'default' => false],
+        ],
+        'jumpTo' => [
+            'inputType' => 'pageTree',
+            'foreignKey' => 'tl_page.title',
+            'eval' => ['fieldType'=>'radio', 'bkSelectable' => true],
+            'sql' => "int(10) unsigned NOT NULL default 0",
+            'relation' => ['type'=>'hasOne', 'load'=>'lazy']
         ],
         'published' => [
             'toggle' => true,

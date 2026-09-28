@@ -39,6 +39,7 @@ class ProcessFormDataListener
             $submittedData['company_'.$key] = $field;
             if ('singleSRC' === $key && null !== $hbeData->singleSRC) {
                 $logo = $this->imageHelper->getImage($hbeData->singleSRC, $form->bkImgSize);
+
                 if ($logo) {
                     $submittedData['company_logo'] = '<img alt="'.$logo->getMetadata()->getAlt().'" src="'.Environment::get('url').$logo->getSchemaOrgData()['contentUrl'].'" style="border:0; outline:none; text-decoration:none; display:block;" >';
                 }

@@ -13,16 +13,21 @@ namespace BiankaKriege\ContaoCompanyData\Helper;
 use Contao\ContentModel;
 use Contao\Controller;
 use Contao\CoreBundle\Twig\FragmentTemplate;
+use Contao\PageModel;
 use Contao\StringUtil;
 use Contao\System;
 use BiankaKriege\ContaoCompanyData\Model\CompanyModel;
 use BiankaKriege\ContaoCompanyData\Model\PersonModel;
 use libphonenumber\PhoneNumberUtil;
 use libphonenumber\PhoneNumberFormat;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 class DataHelper
 {
-    public function __construct(private readonly ImageHelper $imageHelper)
+    public function __construct(
+        private readonly ImageHelper $imageHelper,
+        private readonly TranslatorInterface $translator
+    )
     {
     }
 
@@ -32,10 +37,13 @@ class DataHelper
         $selected = StringUtil::deserialize($model->bkSelectable);
 
         foreach ($selected as $value) {
-            if (!empty($person->{$value})) {
+            if ($value === 'companyName') {
+                $data['companyName'] = CompanyModel::findById($person->pid)->name;
+            }
 
+            if (!empty($person->{$value})) {
                 if ($value === 'singleSRC') {
-                    $data['image'] = $this->imageHelper->getImage($person->singleSRC, $model->size);
+                    $data['image'] = $this->imageHelper->getImage($person->singleSRC, $model->size, $model);
                 } else {
                     $data[$value] = $person->{$value};
                 }
@@ -58,12 +66,27 @@ class DataHelper
                     $data['phoneFormatted'] = $phoneUtil->format($phoneNumberProto, PhoneNumberFormat::E164);
                     $data['phone'] = $person->{$value};
                 }
+
+                if (true === $person->isOfficeRestricted) {
+                    $data['isOfficeRestricted'] = $person->isOfficeRestricted;
+                }
+
+                if ($value === 'jumpTo') {
+                    if ($objTarget = PageModel::findById($person->{$value})) {
+                        $data['href'] = System::getContainer()
+                            ->get('contao.routing.content_url_generator')
+                            ->generate($objTarget)
+                        ;
+                    }
+                }
             }
         }
 
         System::loadLanguageFile(PersonModel::TABLE);
 
         $data['translation'] = $GLOBALS['TL_LANG'][PersonModel::TABLE];
+        $data['href_title'] = $this->translator->trans('MSC.more', [], 'contao_default');
+        $data['href_text'] = $this->translator->trans('MSC.more', [], 'contao_default');
 
         return $data;
     }

@@ -48,7 +48,7 @@
                 <source>Ort des Registers</source>
             </trans-unit>
             <trans-unit id="tl_bk_company.imprintPublicRegistryNumber.0">
-                <source>Handelsregisternummer</source>
+                <source>Handelsregister</source>
             </trans-unit>
             <trans-unit id="tl_bk_company.imprintPublicRegistryNumber.1">
                 <source>Registernummer</source>

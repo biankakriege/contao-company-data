@@ -23,6 +23,8 @@ class BkSelectableOptionsCallback
 
         if ($dc && ('bk_person_single' === $dc->getCurrentRecord()['type'] ||'bk_person_list' === $dc->getCurrentRecord()['type'])) {
             $return = $this->fetchSelectableFields($return, 'tl_bk_person');
+            $return['companyName'] = $this->translator->trans('tl_bk_company.name.0', [], 'contao_tl_bk_company');
+
         }
 
         if ($dc && ('bk_company_contact' === $dc->getCurrentRecord()['type'] )) {

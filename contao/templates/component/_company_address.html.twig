@@ -1,6 +1,6 @@
 {% use "@Contao/component/_company_country.html.twig" %}
 {% block company_address_component %}
-    <ul class="company__address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+    <ul class="company__address" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
         {% if attribute(group, 'street') | default %}
             <li class="company__street">
                 <span itemprop="streetAddress">{{ attribute(group, 'street') }}</span>
@@ -14,9 +14,4 @@
         </li>
         {{ block('company_country_component') }}
     </ul>
-    {% if attribute(group, 'country')|default %}
-        <ul class="company__address" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-            {{ block('company_country_component') }}
-        </ul>
-    {% endif %}
 {% endblock %}

@@ -4,9 +4,12 @@ declare(strict_types=1);
 
 namespace BiankaKriege\ContaoCompanyData\Helper;
 
+use Contao\ContentModel;
 use Contao\CoreBundle\Image\Studio\Figure;
 use Contao\CoreBundle\Image\Studio\Studio;
 use Contao\FilesModel;
+use Contao\Model;
+use Contao\ModuleModel;
 
 readonly class ImageHelper
 {
@@ -20,20 +23,27 @@ readonly class ImageHelper
         return $this->studio;
     }
 
-    public function getImage($image, $size): Figure|null
+    public function getImage(string|null $image, int|string|array|null $size = null, Model|null $model = null): Figure|null
     {
-        $file = FilesModel::findByUuid($image);
+        $filesModel = FilesModel::findByUuid($image);
 
-        if (null !== $file) {
-            $figureBuilder = $this->getStudio()
-                ->createFigureBuilder()
-                ->fromUuid($file->uuid)
-                ->setSize($size)
-            ;
-
-            return $figureBuilder->buildIfResourceExists();
+        if (null === $filesModel) {
+            return null;
         }
 
-        return null;
+        $builder = $this->getStudio()
+            ->createFigureBuilder()
+            ->fromFilesModel($filesModel)
+            ->setSize($size)
+        ;
+
+        if (null !== $model) {
+            $builder
+                ->setLightboxGroupIdentifier('lb'.$model->id)
+                ->enableLightbox((bool) $model->fullsize)
+            ;
+        }
+
+        return $builder->buildIfResourceExists();
     }
 }

@@ -14,6 +14,9 @@
             <trans-unit id="tl_bk_person.position.0">
                 <source>Position</source>
             </trans-unit>
+            <trans-unit id="tl_bk_person.department.0">
+                <source>Abteilung</source>
+            </trans-unit>
             <trans-unit id="tl_bk_person.singleSRC.0">
                 <source>Bild</source>
             </trans-unit>
@@ -53,6 +56,15 @@
             <trans-unit id="tl_bk_person.officeHours.eval.valueLabel">
                 <source>Zeiten</source>
             </trans-unit>
+            <trans-unit id="tl_bk_person.isOfficeRestricted.0">
+                <source>Termine nur nach Vereinbarung</source>
+            </trans-unit>
+            <trans-unit id="tl_bk_person.jumpTo.0">
+                <source>Weiterleitungsseite</source>
+            </trans-unit>
+            <trans-unit id="tl_bk_person.jumpTo.1">
+                <source>Bitte wählen Sie die Seite aus, zu der Besucher beim Anklicken eines Links weitergeleitet werden.</source>
+            </trans-unit>
             <trans-unit id="tl_bk_person.published.0">
                 <source>Veröffentlichen</source>
             </trans-unit>
@@ -67,6 +79,9 @@
             </trans-unit>
             <trans-unit id="tl_bk_person.address_legend">
                 <source>Adressdaten</source>
+            </trans-unit>
+            <trans-unit id="tl_bk_person.redirect_legend">
+                <source>Weiterleitung</source>
             </trans-unit>
             <trans-unit id="tl_bk_person.published_legend">
                 <source>Veröffentlichung</source>

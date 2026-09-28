@@ -7,7 +7,7 @@
 
 {% block content %}
     {% if company %}
-        <div class="company">
+        <div class="company" itemscope itemtype="https://schema.org/Organization">
             {% if logo | default %}
                 {% with {figure: logo} %}{{ block('figure_component') }}{% endwith %}
             {% endif %}

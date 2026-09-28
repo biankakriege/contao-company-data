@@ -35,6 +35,17 @@ $GLOBALS['TL_DCA'][$table]['fields']['bkCompanyId'] = [
     ],
 ];
 
+$GLOBALS['TL_DCA'][$table]['fields']['bkPersonSelection'] = [
+    'inputType' => 'checkboxWizard',
+    'foreignKey' => PersonModel::getTable().'.name',
+    'eval' => [
+        'mandatory' => true,
+        'multiple' => true,
+        'tl_class' => 'clr w50',
+    ],
+    'sql' => "blob NULL"
+];
+
 $GLOBALS['TL_DCA'][$table]['fields']['bkPersonId'] = [
     'inputType' => 'select',
     'foreignKey' => PersonModel::getTable().'.name',
@@ -59,7 +70,7 @@ $GLOBALS['TL_DCA'][$table]['fields']['bkSelectable'] = [
 ];
 
 $GLOBALS['TL_DCA'][$table]['palettes'][BkCompanyContactController::TYPE] =
-    '{type_legend},type,headline,subline;
+    '{type_legend},type,headline,title,subline;
     {company_legend},bkCompanyId,bkSelectable,size;
     {template_legend:hide},customTpl;
     {protected_legend:hide},protected;
@@ -67,9 +78,9 @@ $GLOBALS['TL_DCA'][$table]['palettes'][BkCompanyContactController::TYPE] =
     {invisible_legend:hide},invisible,start,stop';
 
 $GLOBALS['TL_DCA'][$table]['palettes'][BkPersonListController::TYPE] =
-    '{type_legend},type,headline;
+    '{type_legend},type,headline,title;
     {company_legend},bkCompanyId,bkSelectable;
-    {source_legend},size;
+    {source_legend},size,fullsize;
     {template_legend:hide},customTpl;
     {protected_legend:hide},protected;
     {expert_legend:hide},guests,cssID,space;
@@ -77,9 +88,9 @@ $GLOBALS['TL_DCA'][$table]['palettes'][BkPersonListController::TYPE] =
 
 
 $GLOBALS['TL_DCA'][$table]['palettes'][BkPersonSingleController::TYPE] =
-    '{type_legend},type,headline;
+    '{type_legend},type,headline,title;
     {company_legend},bkPersonId,bkSelectable;
-    {source_legend},size;
+    {source_legend},size,fullsize;
     {template_legend:hide},customTpl;
     {protected_legend:hide},protected;
     {expert_legend:hide},guests,cssID,space;

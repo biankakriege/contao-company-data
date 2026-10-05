@@ -1,7 +1,7 @@
 {% use "@Contao/component/_figure.html.twig" %}
 {% use "@Contao/component/_company_contact.html.twig" %}
 
-<div class="person" itemscope itemtype="http://schema.org/Person">
+<div class="person">
     {% block bk_image %}
         {% if image|default %}
             {% with {figure: image} %}{{ block('figure_component') }}{% endwith %}

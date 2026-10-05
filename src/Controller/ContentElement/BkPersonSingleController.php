@@ -14,7 +14,10 @@ use Contao\ContentModel;
 use Contao\CoreBundle\Controller\ContentElement\AbstractContentElementController;
 use Contao\CoreBundle\DependencyInjection\Attribute\AsContentElement;
 use Contao\CoreBundle\Twig\FragmentTemplate;
+use Contao\StringUtil;
 use BiankaKriege\ContaoCompanyData\Helper\DataHelper;
+use BiankaKriege\ContaoCompanyData\JsonLd\CompanySchemaFactory;
+use BiankaKriege\ContaoCompanyData\Model\CompanyModel;
 use BiankaKriege\ContaoCompanyData\Model\PersonModel;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -27,7 +30,8 @@ class BkPersonSingleController extends AbstractContentElementController
 
     public function __construct(
         private readonly TwigEnvironment $twig,
-        private readonly DataHelper $dataHelper
+        private readonly DataHelper $dataHelper,
+        private readonly CompanySchemaFactory $schemaFactory,
     )
     {
     }
@@ -38,6 +42,15 @@ class BkPersonSingleController extends AbstractContentElementController
 
         if (null !== $person && $person->published) {
             $data = $this->dataHelper->getPersonData($person, $model);
+            $company = CompanyModel::findById($person->pid);
+
+            if (null !== $company) {
+                $this->schemaFactory->addToGraph($this->schemaFactory->createOrganization($company));
+            }
+
+            $this->schemaFactory->addToGraph(
+                $this->schemaFactory->createPerson($person, StringUtil::deserialize($model->bkSelectable, true), $company),
+            );
 
             $template->list = $this->twig->render('@Contao/content_element/content-person-list.html.twig', $data);
         }

@@ -14,6 +14,7 @@ use Contao\CoreBundle\Controller\FrontendModule\AbstractFrontendModuleController
 use Contao\CoreBundle\DependencyInjection\Attribute\AsFrontendModule;
 use Contao\ModuleModel;
 use BiankaKriege\ContaoCompanyData\Helper\DataHelper;
+use BiankaKriege\ContaoCompanyData\JsonLd\CompanySchemaFactory;
 use BiankaKriege\ContaoCompanyData\Model\CompanyModel;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,13 +26,18 @@ class BkCompanyContactModuleController extends AbstractFrontendModuleController
 
     public function __construct(
         private readonly DataHelper $dataHelper,
+        private readonly CompanySchemaFactory $schemaFactory,
     ) {
     }
 
     protected function getResponse($template, ModuleModel $model, Request $request): Response
     {
         $company = CompanyModel::findById($model->bkCompanyId);
-        $this->dataHelper->getCompanyContact($company, $model, $template);
+
+        if (null !== $company) {
+            $this->dataHelper->getCompanyContact($company, $model, $template);
+            $this->schemaFactory->addToGraph($this->schemaFactory->createOrganization($company));
+        }
 
         return $template->getResponse();
     }

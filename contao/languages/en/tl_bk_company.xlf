@@ -80,6 +80,27 @@
             <trans-unit id="tl_bk_company.imprint_legend">
                 <source>Impressum</source>
             </trans-unit>
+            <trans-unit id="tl_bk_company.schema_legend">
+                <source>Strukturierte Daten (JSON-LD)</source>
+            </trans-unit>
+            <trans-unit id="tl_bk_company.schemaType.0">
+                <source>Schema.org-Typ</source>
+            </trans-unit>
+            <trans-unit id="tl_bk_company.schemaType.1">
+                <source>Organization passt fast immer. LocalBusiness nur bei einem Standort mit Publikumsverkehr.</source>
+            </trans-unit>
+            <trans-unit id="tl_bk_company.schemaDescription.0">
+                <source>Beschreibung</source>
+            </trans-unit>
+            <trans-unit id="tl_bk_company.schemaDescription.1">
+                <source>Kurze, sachliche Beschreibung des Unternehmens für Suchmaschinen und KI-Assistenten.</source>
+            </trans-unit>
+            <trans-unit id="tl_bk_company.sameAs.0">
+                <source>Profile (sameAs)</source>
+            </trans-unit>
+            <trans-unit id="tl_bk_company.sameAs.1">
+                <source>URLs zu offiziellen Profilen, z. B. LinkedIn, Wikidata, Handelsregister.</source>
+            </trans-unit>
         </body>
     </file>
 </xliff>

@@ -8,6 +8,7 @@ declare(strict_types=1);
  * @package: company-data
  */
 
+use BiankaKriege\ContaoCompanyData\JsonLd\CompanySchemaFactory;
 use Contao\DataContainer;
 use Contao\DC_Table;
 use Contao\System;
@@ -42,7 +43,8 @@ $GLOBALS['TL_DCA'][$table] = [
         'default' => 'name,singleSRC;'.
             '{address_legend},street,postal,city,country;'.
             '{contact_legend},phone,fax,email,website;'.
-            '{imprint_legend},imprintName,imprintRepresentative,imprintPublicRegistry,imprintPublicRegistryNumber,imprintFinancialDistrict,imprintVatIdentificationNumber,imprintTaxIdentificationNumber,imprintEconomyIdentificationNumber;',
+            '{imprint_legend},imprintName,imprintRepresentative,imprintPublicRegistry,imprintPublicRegistryNumber,imprintFinancialDistrict,imprintVatIdentificationNumber,imprintTaxIdentificationNumber,imprintEconomyIdentificationNumber;'.
+            '{schema_legend:hide},schemaType,schemaDescription,sameAs;',
     ],
     'fields' => [
         'id' => [
@@ -231,6 +233,22 @@ $GLOBALS['TL_DCA'][$table] = [
                 'bkSelectable' => true,
             ],
             'sql' => ['type' => 'string', 'length' => 255, 'default' => '', 'notnull' => false],
+        ],
+        'schemaType' => [
+            'inputType' => 'select',
+            'options' => CompanySchemaFactory::TYPES,
+            'eval' => ['tl_class' => 'w50'],
+            'sql' => ['type' => 'string', 'length' => 32, 'default' => 'Organization'],
+        ],
+        'schemaDescription' => [
+            'inputType' => 'textarea',
+            'eval' => ['tl_class' => 'clr', 'decodeEntities' => true],
+            'sql' => ['type' => 'text', 'notnull' => false],
+        ],
+        'sameAs' => [
+            'inputType' => 'listWizard',
+            'eval' => ['tl_class' => 'clr', 'decodeEntities' => true],
+            'sql' => ['type' => 'blob', 'notnull' => false],
         ],
     ],
 ];

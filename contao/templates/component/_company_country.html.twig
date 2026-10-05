@@ -1,7 +1,7 @@
 {% block company_country_component %}
     {% if attribute(group, 'country')|default %}
         <li class="company__country">
-            <span itemprop="addressCountry">{{ attribute(group, 'country') }}</span>
+            <span>{{ attribute(group, 'country') }}</span>
         </li>
     {% endif %}
 {% endblock %}

@@ -9,7 +9,7 @@
         {% if attribute(group, 'imprintVatIdentificationNumber') | default %}
             <li class="company__vat-id">
                 <span>{{ attribute(attribute(translation, 'imprintVatIdentificationNumber' ),0) }}:</span>
-                <span itemprop="vatID">{{ attribute(group, 'imprintVatIdentificationNumber') }}</span>
+                <span>{{ attribute(group, 'imprintVatIdentificationNumber') }}</span>
             </li>
         {% endif %}
         {% if attribute(group, 'imprintFinancialDistrict') | default %}
@@ -33,7 +33,7 @@
         {% if attribute(group, 'imprintTaxIdentificationNumber') | default %}
             <li class="company__tax-id">
                 <span>{{ attribute(attribute(translation, 'imprintTaxIdentificationNumber' ),0) }}:</span>
-                <span itemprop="taxID">{{ attribute(group, 'imprintTaxIdentificationNumber') }}</span>
+                <span>{{ attribute(group, 'imprintTaxIdentificationNumber') }}</span>
             </li>
         {% endif %}
         {% if attribute(group, 'imprintEconomyIdentificationNumber') | default %}

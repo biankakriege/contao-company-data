@@ -5,27 +5,24 @@
                 <span>{{ attribute(attribute(translation, 'email' ),0) }}:</span>
                 <a href="mailto:{{ attribute(group, 'email') }}">{{ attribute(group, 'email') }}
                 </a>
-                <meta itemprop="email" content="{{ attribute(group, 'email') }}"/>
             </li>
         {% endif %}
         {% if attribute(group, 'phone') | default %}
             <li class="company__phone">
                 <span>{{ attribute(attribute(translation, 'phone' ),0) }}:</span>
                 <a href="tel:{{  attribute(group, 'phone') }}">{{ attribute(group, 'phone') }}</a>
-                <meta itemprop="telephone" content="{{ attribute(group, 'phone') }}"/>
             </li>
         {% endif %}
         {% if attribute(group, 'fax') | default %}
             <li class="company__fax">
                 <span>{{ attribute(attribute(translation, 'fax' ),0) }}:</span>
                 <span>{{ attribute(group, 'fax') }}</span>
-                <meta itemprop="faxNumber" content="{{ attribute(group, 'fax') }}"/>
             </li>
         {% endif %}
         {% if attribute(group, 'website') | default %}
             <li class="company__website">
                 <span>{{ attribute(attribute(translation, 'website' ),0) }}:</span>
-                <a itemprop="url" href="{{ attribute(group, 'website') }}">{{ attribute(group, 'website') }}</a>
+                <a href="{{ attribute(group, 'website') }}">{{ attribute(group, 'website') }}</a>
             </li>
         {% endif %}
     </ul>

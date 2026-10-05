@@ -1,0 +1,49 @@
+tl_bk_person:
+    pid:
+        - Firma
+    title:
+        - Titel
+    name:
+        - Name
+    position:
+        - Position
+    department:
+        - Abteilung
+    singleSRC:
+        - Bild
+    phone:
+        - Telefonnummer
+    mobile:
+        - Handynummer
+    fax:
+        - Faxnummer
+    email:
+        - E-Mail
+    website:
+        - Webseite
+    street:
+        - Straße
+    postal:
+        - Postleitzahl
+    city:
+        - Ort
+    country:
+        - Land
+    officeHours:
+        '0': Sprechzeiten
+        eval:
+            keyLabel: Wochentage
+            valueLabel: Zeiten
+    isOfficeRestricted:
+        - Termine nur nach Vereinbarung
+    jumpTo:
+        - Weiterleitungsseite
+        - Bitte wähle die Seite aus, zu der Besucher beim Anklicken eines Links weitergeleitet werden.
+    published:
+        - Veröffentlichen
+        - Auf der Webseite in Inhaltselementen anzeigen
+    personal_legend: Allgemein
+    contact_legend: Kontaktdaten
+    address_legend: Adressdaten
+    redirect_legend: Weiterleitung
+    published_legend: Veröffentlichung

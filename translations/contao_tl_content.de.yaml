@@ -1,0 +1,10 @@
+tl_content:
+    bkCompanyId:
+        - Anzuzeigende Firma
+        - Wähle die Firma, deren Kontaktdaten angezeigt werden sollen.
+    bkPersonId:
+        - Anzuzeigende Person
+    bkSelectable:
+        - Auswahl Felder
+        - Wähle aus, welche Daten auf der Webseite ausgegeben werden sollen.
+    company_legend: Firma-Einstellungen

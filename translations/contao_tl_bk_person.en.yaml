@@ -1,0 +1,49 @@
+tl_bk_person:
+    pid:
+        - Company
+    title:
+        - Title
+    name:
+        - Name
+    position:
+        - Position
+    department:
+        - Department
+    singleSRC:
+        - Image
+    phone:
+        - Phone number
+    mobile:
+        - Mobile number
+    fax:
+        - Fax number
+    email:
+        - Email
+    website:
+        - Website
+    street:
+        - Street
+    postal:
+        - Postal code
+    city:
+        - City
+    country:
+        - Country
+    officeHours:
+        '0': Office hours
+        eval:
+            keyLabel: Weekdays
+            valueLabel: Times
+    isOfficeRestricted:
+        - Appointments by arrangement only
+    jumpTo:
+        - Redirect page
+        - Please select the page visitors are redirected to when clicking a link.
+    published:
+        - Publish
+        - Show on the website in content elements
+    personal_legend: General
+    contact_legend: Contact details
+    address_legend: Address details
+    redirect_legend: Redirect
+    published_legend: Publishing

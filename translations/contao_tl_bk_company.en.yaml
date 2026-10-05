@@ -1,0 +1,45 @@
+tl_bk_company:
+    name:
+        - Company name
+    singleSRC:
+        - Logo
+        - Please select the company logo from the files
+    city:
+        - City
+    postal:
+        - Postal code
+    street:
+        - Street
+    country:
+        - Country
+    email:
+        - Email
+    phone:
+        - Phone
+    fax:
+        - Fax
+    website:
+        - Website
+    imprintName:
+        - Company name including legal form
+    imprintRepresentative:
+        - Management
+    imprintPublicRegistry:
+        - Register
+        - Place of registration
+    imprintPublicRegistryNumber:
+        - Commercial register
+        - Registration number
+    imprintFinancialDistrict:
+        - Tax office
+    imprintVatIdentificationNumber:
+        - VAT ID
+        - VAT identification number
+    imprintTaxIdentificationNumber:
+        - Tax number
+    imprintEconomyIdentificationNumber:
+        - Business ID
+        - Business identification number
+    address_legend: Address
+    contact_legend: Contact
+    imprint_legend: Legal notice

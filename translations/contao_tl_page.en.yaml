@@ -1,0 +1,5 @@
+tl_page:
+    bkCompanyId:
+        - Company
+        - This company is output as a schema.org organization on all pages of this website.
+    bk_company_legend: Company (JSON-LD)

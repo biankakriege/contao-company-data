@@ -40,6 +40,16 @@ tl_bk_company:
     imprintEconomyIdentificationNumber:
         - Business ID
         - Business identification number
+    schemaType:
+        - Schema.org type
+        - Organization fits almost always. LocalBusiness only for locations with public access.
+    schemaDescription:
+        - Description
+        - Short, factual description of the company for search engines and AI assistants.
+    sameAs:
+        - Profiles (sameAs)
+        - URLs to official profiles, e.g. LinkedIn, Wikidata, commercial register.
     address_legend: Address
     contact_legend: Contact
     imprint_legend: Legal notice
+    schema_legend: Structured data (JSON-LD)

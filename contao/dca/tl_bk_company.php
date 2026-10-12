@@ -23,6 +23,7 @@ $GLOBALS['TL_DCA'][$table] = [
         'sql' => [
             'keys' => [
                 'id' => 'primary',
+                'alias' => 'index',
             ],
         ],
     ],
@@ -40,7 +41,7 @@ $GLOBALS['TL_DCA'][$table] = [
         ],
     ],
     'palettes' => [
-        'default' => 'name,singleSRC;'.
+        'default' => 'name,alias,singleSRC;'.
             '{address_legend},street,postal,city,country;'.
             '{contact_legend},phone,fax,email,website;'.
             '{imprint_legend},imprintName,imprintRepresentative,imprintPublicRegistry,imprintPublicRegistryNumber,imprintFinancialDistrict,imprintVatIdentificationNumber,imprintTaxIdentificationNumber,imprintEconomyIdentificationNumber;'.
@@ -63,6 +64,12 @@ $GLOBALS['TL_DCA'][$table] = [
                 'bkSelectable' => true,
             ],
             'sql' => ['type' => 'string', 'length' => 255, 'default' => '', 'notnull' => false],
+        ],
+        'alias' => [
+            'search' => true,
+            'inputType' => 'text',
+            'eval' => ['rgxp' => 'alias', 'doNotCopy' => true, 'unique' => true, 'maxlength' => 255, 'tl_class' => 'w50'],
+            'sql' => "varchar(255) BINARY NOT NULL default ''",
         ],
         'singleSRC' => [
             'inputType' => 'fileTree',

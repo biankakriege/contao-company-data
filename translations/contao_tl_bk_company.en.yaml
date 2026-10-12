@@ -1,6 +1,9 @@
 tl_bk_company:
     name:
         - Company name
+    alias:
+        - Alias
+        - 'The alias is generated from the name and can be used in insert tags instead of the ID.'
     singleSRC:
         - Logo
         - Please select the company logo from the files

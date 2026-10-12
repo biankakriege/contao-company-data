@@ -26,6 +26,7 @@ $GLOBALS['TL_DCA'][PersonModel::TABLE] =
             'keys' => [
                 'id' => 'primary',
                 'email' => 'index',
+                'alias' => 'index',
             ],
         ],
     ],
@@ -46,7 +47,7 @@ $GLOBALS['TL_DCA'][PersonModel::TABLE] =
     ],
 
     'palettes' => [
-        'default' => '{personal_legend},name,title,position,department,officeHours,isOfficeRestricted,singleSRC;{contact_legend},phone,mobile,fax,email,website;{address_legend},street,postal,city,country;{redirect_legend},jumpTo;{published_legend},published;',
+        'default' => '{personal_legend},name,alias,title,position,department,officeHours,isOfficeRestricted,singleSRC;{contact_legend},phone,mobile,fax,email,website;{address_legend},street,postal,city,country;{redirect_legend},jumpTo;{published_legend},published;',
     ],
 
     'fields' => [
@@ -73,6 +74,12 @@ $GLOBALS['TL_DCA'][PersonModel::TABLE] =
             'inputType' => 'text',
             'eval' => ['mandatory' => true, 'maxlength' => 255, 'bkSelectable' => true, 'tl_class' => 'w50'],
             'sql' => ['type' => 'string', 'length' => 255, 'default' => '', 'notnull' => false],
+        ],
+        'alias' => [
+            'search' => true,
+            'inputType' => 'text',
+            'eval' => ['rgxp' => 'alias', 'doNotCopy' => true, 'unique' => true, 'maxlength' => 255, 'tl_class' => 'w50'],
+            'sql' => "varchar(255) BINARY NOT NULL default ''",
         ],
         'position' => [
             'inputType' => 'text',

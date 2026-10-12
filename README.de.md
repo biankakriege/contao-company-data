@@ -50,6 +50,19 @@ Im Startpunkt (**Unternehmen (JSON-LD)**) ein Unternehmen auswählen, dann wird 
 
 Das Ergebnis lässt sich mit dem [Schema Markup Validator](https://validator.schema.org/) prüfen.
 
+## Insert-Tags
+
+`{{company::feld}}` gibt ein Feld des im Startpunkt ausgewählten Unternehmens aus, `{{company::feld::alias}}` das Feld eines bestimmten Unternehmens. Statt des Alias funktioniert auch die ID.
+
+Felder: `name`, `address`, `street`, `postal`, `city`, `country`, `phone`, `fax`, `email`, `website`, `logo` (Pfad) sowie die Impressumsfelder wie `imprintName` oder `imprintVatIdentificationNumber`.
+
+```
+{{company::name}}, {{company::address}}
+{{company::phone::muster-gmbh}}
+```
+
+`{{company_person::feld::alias}}` gibt ein Feld einer veröffentlichten Person aus, z. B. `{{company_person::email::erika-muster}}`. Felder: `fullname`, `title`, `name`, `position`, `department`, `phone`, `mobile`, `fax`, `email`, `website`, `address`, `country` und `image` (Pfad).
+
 ## Templates
 
 Alle Templates lassen sich wie üblich überschreiben, z. B. `bk_company_contact.html.twig`, `content-person-list.html.twig` oder `mail_signature.html.twig`.

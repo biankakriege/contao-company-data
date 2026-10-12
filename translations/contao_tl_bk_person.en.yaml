@@ -5,6 +5,9 @@ tl_bk_person:
         - Title
     name:
         - Name
+    alias:
+        - Alias
+        - 'The alias is generated from the name and can be used in insert tags instead of the ID.'
     position:
         - Position
     department:

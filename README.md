@@ -51,6 +51,19 @@ Select a company in the website root (**Company (JSON-LD)**) to output it as `Or
 
 Check the result with the [Schema Markup Validator](https://validator.schema.org/).
 
+## Insert tags
+
+`{{company::field}}` outputs a field of the company selected in the website root, `{{company::field::alias}}` the field of a specific company. Instead of the alias you can also use the ID.
+
+Fields: `name`, `address`, `street`, `postal`, `city`, `country`, `phone`, `fax`, `email`, `website`, `logo` (path) and the legal notice fields such as `imprintName` or `imprintVatIdentificationNumber`.
+
+```
+{{company::name}}, {{company::address}}
+{{company::phone::muster-gmbh}}
+```
+
+`{{company_person::field::alias}}` outputs a field of a published person, e.g. `{{company_person::email::erika-muster}}`. Fields: `fullname`, `title`, `name`, `position`, `department`, `phone`, `mobile`, `fax`, `email`, `website`, `address`, `country` and `image` (path).
+
 ## Templates
 
 All templates can be overridden as usual, e.g. `bk_company_contact.html.twig`, `content-person-list.html.twig` or `mail_signature.html.twig`.

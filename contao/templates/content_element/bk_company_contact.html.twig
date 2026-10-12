@@ -6,7 +6,7 @@
 {% use "@Contao/component/_company_imprint.html.twig" %}
 
 {% block content %}
-    {% if company %}
+    {% if company or logo %}
         <div class="company">
             {% if logo|default %}
                 {% with {figure: logo} %}{{ block('figure_component') }}{% endwith %}

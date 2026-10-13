@@ -41,7 +41,7 @@ $GLOBALS['TL_DCA'][$table] = [
         ],
     ],
     'palettes' => [
-        'default' => 'name,alias,singleSRC;'.
+        'default' => 'name,alias,singleSRC,companyImage;'.
             '{address_legend},street,postal,city,country;'.
             '{contact_legend},phone,fax,email,website;'.
             '{imprint_legend},imprintName,imprintRepresentative,imprintPublicRegistry,imprintPublicRegistryNumber,imprintFinancialDistrict,imprintVatIdentificationNumber,imprintTaxIdentificationNumber,imprintEconomyIdentificationNumber;'.
@@ -76,9 +76,19 @@ $GLOBALS['TL_DCA'][$table] = [
             'eval' => [
                 'filesOnly' => true,
                 'fieldType' => 'radio',
-                'tl_class' => 'clr',
+                'tl_class' => 'clr w50',
                 'bkSelectable' => true,
                 'feGroup' => 'image',
+            ],
+            'sql' => 'binary(16) NULL',
+        ],
+        'companyImage' => [
+            'inputType' => 'fileTree',
+            'eval' => [
+                'filesOnly' => true,
+                'fieldType' => 'radio',
+                'extensions' => '%contao.image.valid_extensions%',
+                'tl_class' => 'w50',
             ],
             'sql' => 'binary(16) NULL',
         ],

@@ -44,7 +44,7 @@ In den Formulareinstellungen (**Formulardaten mit Firma anreichern**) lässt sic
 
 ### Strukturierte Daten (JSON-LD)
 
-Im Startpunkt (**Unternehmen (JSON-LD)**) ein Unternehmen auswählen, dann wird es auf jeder Seite als `Organization` ausgegeben. Die Inhaltselemente ergänzen das Unternehmen und die angezeigten Personen. Schema-Typ, Beschreibung und Profile (`sameAs`) werden pro Unternehmen gepflegt.
+Im Startpunkt (**Unternehmen (JSON-LD)**) ein Unternehmen auswählen, dann wird es auf jeder Seite als `Organization` ausgegeben. Die Inhaltselemente ergänzen das Unternehmen und die angezeigten Personen. Schema-Typ, Beschreibung und Profile (`sameAs`) werden pro Unternehmen gepflegt. Den leeren `WebPage`-Eintrag, den Contao auf jeder Seite ausgibt, ergänzt die Erweiterung um URL, Titel, Beschreibung, Sprache und das Unternehmen als `publisher`.
 
 ![Unternehmensauswahl im Startpunkt](docs/backend_root_page.png)
 

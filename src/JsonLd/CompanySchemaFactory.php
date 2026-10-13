@@ -71,10 +71,8 @@ final readonly class CompanySchemaFactory
         $this->set($schema, 'vatID', $company->imprintVatIdentificationNumber);
         $this->set($schema, 'taxID', $company->imprintTaxIdentificationNumber);
 
-        if ($logo = $this->getFileUrl($company->singleSRC)) {
-            $schema->setProperty('logo', $logo);
-            $schema->setProperty('image', $logo);
-        }
+        $this->set($schema, 'logo', $this->getFileUrl($company->singleSRC));
+        $this->set($schema, 'image', $this->getFileUrl($company->companyImage));
 
         if ($address = $this->createAddress($company->street, $company->postal, $company->city, $company->country)) {
             $schema->setProperty('address', $address);
@@ -144,10 +142,18 @@ final readonly class CompanySchemaFactory
         }
 
         if ($company) {
-            $schema->setProperty('worksFor', $this->createOrganizationType($company));
+            $schema->setProperty('worksFor', $this->createOrganizationReference($company));
         }
 
         return $schema;
+    }
+
+    /**
+     * Returns only the typed node with its @id, to reference the organization from other entities.
+     */
+    public function createOrganizationReference(CompanyModel $company): BaseType
+    {
+        return $this->createOrganizationType($company);
     }
 
     private function createOrganizationType(CompanyModel $company): BaseType

@@ -7,6 +7,9 @@ tl_bk_company:
     singleSRC:
         - Logo
         - Please select the company logo from the files
+    companyImage:
+        - Company image
+        - Optional photo, e.g. team, office or storefront. Used as the company image in the structured data.
     city:
         - City
     postal:

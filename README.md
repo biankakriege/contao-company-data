@@ -44,7 +44,7 @@ In the form settings (**Enrich form data with company**) you can append an email
 
 ### Structured data (JSON-LD)
 
-Select a company in the website root (**Company (JSON-LD)**) to output it as `Organization` on every page. The content elements add the company and the shown persons as well. Schema.org type, description and profiles (`sameAs`) are set per company.
+Select a company in the website root (**Company (JSON-LD)**) to output it as `Organization` on every page. The content elements add the company and the shown persons as well. Schema.org type, description and profiles (`sameAs`) are set per company. The empty `WebPage` node Contao adds to every page is completed with URL, title, description, language and the company as `publisher`.
 
 ![Company selection in the website root](docs/backend_root_page.png)
 

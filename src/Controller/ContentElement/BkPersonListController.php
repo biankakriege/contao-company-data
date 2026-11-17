@@ -42,6 +42,7 @@ class BkPersonListController extends AbstractContentElementController
         $people = PersonModel::findBy(
             ['pid=?', 'published=?'],
             [$model->bkCompanyId, 1],
+            ['order' => 'sorting'],
         );
 
         if (null !== $people) {

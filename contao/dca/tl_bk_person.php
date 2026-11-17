@@ -22,6 +22,7 @@ $GLOBALS['TL_DCA'][PersonModel::TABLE] =
         'dataContainer' => DC_Table::class,
         'ptable' => CompanyModel::TABLE,
         'enableVersioning' => true,
+        'markAsCopy' => 'name',
         'sql' => [
             'keys' => [
                 'id' => 'primary',
@@ -33,16 +34,15 @@ $GLOBALS['TL_DCA'][PersonModel::TABLE] =
 
     'list' => [
         'sorting' => [
-            'mode' => DataContainer::MODE_SORTABLE,
-            'fields' => ['name'],
+            'mode' => DataContainer::MODE_PARENT,
+            'fields' => ['sorting'],
             'defaultSearchField' => 'name',
-            'flag' => DataContainer::SORT_INITIAL_LETTER_ASC,
-            'panelLayout' => 'filter;sort,search,limit',
+            'panelLayout' => 'filter;search,limit',
             'headerFields'  => ['name', 'street', 'postal', 'city'],
         ],
         'label' => [
-            'fields' => ['name', 'position', 'department', 'email', 'phone'],
-            'showColumns' => true,
+            'fields' => ['name', 'position'],
+            'format' => '%s <span class="label-info">%s</span>',
         ],
     ],
 

@@ -20,7 +20,7 @@ class BkPersonSelectionOptionsCallback
     {
         $return = [];
 
-        $people = PersonModel::findBy('published',true);
+        $people = PersonModel::findBy('published', true, ['order' => 'name']);
 
         if (null !== $people) {
             foreach ($people as $person) {

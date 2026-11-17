@@ -59,3 +59,5 @@ tl_bk_company:
     contact_legend: Kontakt
     imprint_legend: Impressum
     schema_legend: Strukturierte Daten (JSON-LD)
+    personCount:
+        - Personen

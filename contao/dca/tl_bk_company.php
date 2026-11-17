@@ -36,7 +36,7 @@ $GLOBALS['TL_DCA'][$table] = [
             'defaultSearchField' => 'name',
         ],
         'label' => [
-            'fields' => ['name', 'city', 'street'],
+            'fields' => ['name', 'city', 'street', 'personCount'],
             'showColumns' => true,
         ],
     ],
@@ -54,6 +54,8 @@ $GLOBALS['TL_DCA'][$table] = [
         'tstamp' => [
             'sql' => 'int(10) unsigned NOT NULL default 0',
         ],
+        // Listing only, the value is calculated in CompanyLabelListener
+        'personCount' => [],
         'name' => [
             'inputType' => 'text',
             'eval' => [

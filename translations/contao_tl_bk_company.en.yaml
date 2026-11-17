@@ -59,3 +59,5 @@ tl_bk_company:
     contact_legend: Contact
     imprint_legend: Legal notice
     schema_legend: Structured data (JSON-LD)
+    personCount:
+        - People

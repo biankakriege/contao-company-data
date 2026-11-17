@@ -44,12 +44,27 @@ In the form settings (**Enrich form data with company**) you can append an email
 
 ### Structured data (JSON-LD)
 
-Select a company in the website root (**Company (JSON-LD)**) to output it as `Organization` on every page. The content elements add the company and the shown persons as well. Schema.org type, description and profiles (`sameAs`) are set per company. The empty `WebPage` node Contao adds to every page is completed with URL, title, description, language and the company as `publisher`.
+Select a company in the website root (**Company (JSON-LD)**) to output it as `Organization` on every page. The content elements add the company and the shown persons as well. Schema.org type, description, an optional image (e.g. team or office photo) and profiles (`sameAs`) are set per company. The empty `WebPage` node Contao adds to every page is completed with URL, title, description, language and the company as `publisher`.
 
 ![Company selection in the website root](docs/backend_root_page.png)
 
 
 Check the result with the [Schema Markup Validator](https://validator.schema.org/).
+
+### IndexNow (optional)
+
+Notifies Bing and other IndexNow search engines when a published page, news item or event is saved. To enable it, set a key and place a file with the same name in `public/`:
+
+```bash
+# .env.local
+INDEXNOW_KEY=8f2c1e7a9b4d4f0e
+```
+
+```bash
+echo -n 8f2c1e7a9b4d4f0e > public/8f2c1e7a9b4d4f0e.txt
+```
+
+Without a key nothing is sent. News and events are only covered if the respective bundle is installed.
 
 ## Insert tags
 

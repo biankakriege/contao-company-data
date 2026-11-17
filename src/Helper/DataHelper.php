@@ -18,15 +18,15 @@ use Contao\StringUtil;
 use Contao\System;
 use BiankaKriege\ContaoCompanyData\Model\CompanyModel;
 use BiankaKriege\ContaoCompanyData\Model\PersonModel;
-use libphonenumber\PhoneNumberUtil;
-use libphonenumber\PhoneNumberFormat;
+use BiankaKriege\ContaoCompanyData\Phone\PhoneNumberFormatter;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 class DataHelper
 {
     public function __construct(
         private readonly ImageHelper $imageHelper,
-        private readonly TranslatorInterface $translator
+        private readonly TranslatorInterface $translator,
+        private readonly PhoneNumberFormatter $phoneNumberFormatter
     )
     {
     }
@@ -35,6 +35,9 @@ class DataHelper
     {
         $data = [];
         $selected = StringUtil::deserialize($model->bkSelectable);
+
+        $countryCode = $person->country ?: CompanyModel::findById($person->pid)?->country;
+        $data['countryCode'] = $countryCode;
 
         foreach ($selected as $value) {
             if ($value === 'companyName') {
@@ -60,11 +63,7 @@ class DataHelper
                 }
 
                 if ($value === 'phone') {
-                    $phoneUtil = PhoneNumberUtil::getInstance();
-                    $phoneNumberProto = $phoneUtil->parse($person->{$value}, "DE");
-
-                    $data['phoneFormatted'] = $phoneUtil->format($phoneNumberProto, PhoneNumberFormat::E164);
-                    $data['phone'] = $person->{$value};
+                    $data['phoneFormatted'] = $this->phoneNumberFormatter->format($person->{$value}, $countryCode);
                 }
 
                 if (true === $person->isOfficeRestricted) {
@@ -116,6 +115,7 @@ class DataHelper
         }
 
         $template->company = $data;
+        $template->countryCode = $company->country;
         $template->translation = $GLOBALS['TL_LANG'][CompanyModel::TABLE];
     }
 }

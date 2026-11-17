@@ -12,15 +12,13 @@ namespace BiankaKriege\ContaoCompanyData\JsonLd;
 
 use BiankaKriege\ContaoCompanyData\Model\CompanyModel;
 use BiankaKriege\ContaoCompanyData\Model\PersonModel;
+use BiankaKriege\ContaoCompanyData\Phone\PhoneNumberFormatter;
 use Contao\CoreBundle\Routing\ResponseContext\JsonLd\JsonLdManager;
 use Contao\CoreBundle\Routing\ResponseContext\ResponseContext;
 use Contao\CoreBundle\Routing\ResponseContext\ResponseContextAccessor;
 use Contao\CoreBundle\String\HtmlDecoder;
 use Contao\FilesModel;
 use Contao\StringUtil;
-use libphonenumber\NumberParseException;
-use libphonenumber\PhoneNumberFormat;
-use libphonenumber\PhoneNumberUtil;
 use Spatie\SchemaOrg\BaseType;
 use Spatie\SchemaOrg\Corporation;
 use Spatie\SchemaOrg\LocalBusiness;
@@ -39,6 +37,7 @@ final readonly class CompanySchemaFactory
         private RequestStack $requestStack,
         private ResponseContextAccessor $responseContextAccessor,
         private HtmlDecoder $htmlDecoder,
+        private PhoneNumberFormatter $phoneNumberFormatter,
     ) {
     }
 
@@ -66,8 +65,8 @@ final readonly class CompanySchemaFactory
         $this->set($schema, 'description', $company->schemaDescription);
         $this->set($schema, 'url', $this->normalizeUrl($company->website) ?? $this->getBaseUrl().'/');
         $this->set($schema, 'email', $company->email);
-        $this->set($schema, 'telephone', $this->formatPhone($company->phone, $company->country));
-        $this->set($schema, 'faxNumber', $this->formatPhone($company->fax, $company->country));
+        $this->set($schema, 'telephone', $this->phoneNumberFormatter->format($company->phone, $company->country));
+        $this->set($schema, 'faxNumber', $this->phoneNumberFormatter->format($company->fax, $company->country));
         $this->set($schema, 'vatID', $company->imprintVatIdentificationNumber);
         $this->set($schema, 'taxID', $company->imprintTaxIdentificationNumber);
 
@@ -115,11 +114,11 @@ final readonly class CompanySchemaFactory
         }
 
         if ($has('phone')) {
-            $this->set($schema, 'telephone', $this->formatPhone($person->phone, $person->country ?: $company?->country));
+            $this->set($schema, 'telephone', $this->phoneNumberFormatter->format($person->phone, $person->country ?: $company?->country));
         }
 
         if ($has('fax')) {
-            $this->set($schema, 'faxNumber', $this->formatPhone($person->fax, $person->country ?: $company?->country));
+            $this->set($schema, 'faxNumber', $this->phoneNumberFormatter->format($person->fax, $person->country ?: $company?->country));
         }
 
         if ($has('website')) {
@@ -193,21 +192,6 @@ final readonly class CompanySchemaFactory
     private function plain(string $value): string
     {
         return $this->htmlDecoder->inputEncodedToPlainText($value);
-    }
-
-    private function formatPhone(string|null $number, string|null $country): string|null
-    {
-        if (!$number) {
-            return null;
-        }
-
-        try {
-            $util = PhoneNumberUtil::getInstance();
-
-            return $util->format($util->parse($number, strtoupper($country ?: 'DE')), PhoneNumberFormat::E164);
-        } catch (NumberParseException) {
-            return $number;
-        }
     }
 
     private function normalizeUrl(string|null $url): string|null

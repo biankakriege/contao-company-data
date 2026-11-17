@@ -31,15 +31,15 @@
         <div class="person__content">
             {% if phone|default %}
                 <span class="label">{{ attribute(attribute(translation, 'phone' ),0) }}</span>
-                <a href="tel:{{ phoneFormatted }}" class="value" title="{{ phone }}">{{ phone }}</a>
+                <a href="tel:{{ phone|tel_href(countryCode|default) }}" class="value" title="{{ phone }}">{{ phone }}</a>
             {% endif %}
             {% if mobile|default %}
                 <span class="label">{{ attribute(attribute(translation, 'mobile' ),0) }}</span>
-                <span class="value">{{ mobile }}</span>
+                <a href="tel:{{ mobile|tel_href(countryCode|default) }}" class="value" title="{{ mobile }}">{{ mobile }}</a>
             {% endif %}
             {% if fax|default %}
                 <span class="label">{{ attribute(attribute(translation, 'fax' ),0) }}</span>
-                <span class="value">{{ fax }}</span>
+                <a href="tel:{{ fax|tel_href(countryCode|default) }}" class="value" title="{{ fax }}">{{ fax }}</a>
             {% endif %}
         </div>
         {% endif %}

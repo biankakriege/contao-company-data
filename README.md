@@ -83,6 +83,12 @@ Fields: `name`, `address`, `street`, `postal`, `city`, `country`, `phone`, `fax`
 
 All templates can be overridden as usual, e.g. `bk_company_contact.html.twig`, `content-person-list.html.twig` or `mail_signature.html.twig`.
 
+For `tel:` links, the Twig filter `tel_href` formats a phone number as E.164. The argument is the ISO country code (the company's country, a mandatory field). Numbers that cannot be parsed are output unchanged. The templates provide the code as `countryCode`:
+
+```twig
+<a href="tel:{{ phone|tel_href(countryCode|default) }}">{{ phone }}</a>
+```
+
 ## License
 
 LGPL-3.0-or-later

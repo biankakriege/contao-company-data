@@ -126,6 +126,7 @@ $GLOBALS['TL_DCA'][$table] = [
         'country' => [
             'inputType' => 'select',
             'eval' => [
+                'mandatory' => true,
                 'tl_class' => 'w50',
                 'includeBlankOption' => true,
                 'chosen' => true,

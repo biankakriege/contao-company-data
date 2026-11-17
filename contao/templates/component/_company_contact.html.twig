@@ -10,13 +10,13 @@
         {% if attribute(group, 'phone') | default %}
             <li class="company__phone">
                 <span>{{ attribute(attribute(translation, 'phone' ),0) }}:</span>
-                <a href="tel:{{  attribute(group, 'phone') }}">{{ attribute(group, 'phone') }}</a>
+                <a href="tel:{{ attribute(group, 'phone')|tel_href(countryCode|default) }}">{{ attribute(group, 'phone') }}</a>
             </li>
         {% endif %}
         {% if attribute(group, 'fax') | default %}
             <li class="company__fax">
                 <span>{{ attribute(attribute(translation, 'fax' ),0) }}:</span>
-                <span>{{ attribute(group, 'fax') }}</span>
+                <a href="tel:{{ attribute(group, 'fax')|tel_href(countryCode|default) }}">{{ attribute(group, 'fax') }}</a>
             </li>
         {% endif %}
         {% if attribute(group, 'website') | default %}

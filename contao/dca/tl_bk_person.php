@@ -120,17 +120,17 @@ $GLOBALS['TL_DCA'][PersonModel::TABLE] =
         ],
         'phone' => [
             'inputType' => 'text',
-            'eval' => ['tl_class' => 'w50', 'bkSelectable' => true],
+            'eval' => ['tl_class' => 'w50', 'bkSelectable' => true, 'rgxp' => 'phone'],
             'sql' => ['type' => 'string', 'length' => 255, 'default' => '', 'notnull' => false],
         ],
         'mobile' => [
             'inputType' => 'text',
-            'eval' => ['tl_class' => 'w50', 'bkSelectable' => true],
+            'eval' => ['tl_class' => 'w50', 'bkSelectable' => true, 'rgxp' => 'phone'],
             'sql' => ['type' => 'string', 'length' => 255, 'default' => '', 'notnull' => false],
         ],
         'fax' => [
             'inputType' => 'text',
-            'eval' => ['tl_class' => 'w50', 'bkSelectable' => true],
+            'eval' => ['tl_class' => 'w50', 'bkSelectable' => true, 'rgxp' => 'phone'],
             'sql' => ['type' => 'string', 'length' => 255, 'default' => '', 'notnull' => false],
         ],
         'email' => [
